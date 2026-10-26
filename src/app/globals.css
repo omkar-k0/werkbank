@@ -1,26 +1,103 @@
 @import "tailwindcss";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
 
+/* Workshop palette: paper, walnut ink, sawdust. Gate colours are
+   semantic: moss = auto, amber = check, rust = review. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #f7f2e8;
+  --card: #fffdf8;
+  --ink: #2b221a;
+  --muted: #74675a;
+  --line: #e4d9c6;
+  --sawdust: #efe5d2;
+  --walnut: #7a4a2b;
+  --walnut-ink: #fffaf2;
+  --moss: #4d6b35;
+  --moss-bg: #e6eedb;
+  --amber: #9a6a0e;
+  --amber-bg: #f7ebcd;
+  --rust: #a8462a;
+  --rust-bg: #f6ddd3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #1b1712;
+    --card: #241f18;
+    --ink: #f1e9dc;
+    --muted: #b3a593;
+    --line: #3a3127;
+    --sawdust: #2e271f;
+    --walnut: #d39a6a;
+    --walnut-ink: #1b1712;
+    --moss: #a9c98c;
+    --moss-bg: #2c3622;
+    --amber: #e8c069;
+    --amber-bg: #3a2f17;
+    --rust: #ee9c7f;
+    --rust-bg: #3d241b;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-sawdust: var(--sawdust);
+  --color-walnut: var(--walnut);
+  --color-walnut-ink: var(--walnut-ink);
+  --color-moss: var(--moss);
+  --color-moss-bg: var(--moss-bg);
+  --color-amber: var(--amber);
+  --color-amber-bg: var(--amber-bg);
+  --color-rust: var(--rust);
+  --color-rust-bg: var(--rust-bg);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
 }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* faint wood-grain texture on the paper */
+.grain {
+  background-image: repeating-linear-gradient(
+    100deg,
+    transparent 0 22px,
+    color-mix(in oklab, var(--line) 35%, transparent) 22px 23px
+  );
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+}
+.input:focus { border-color: var(--walnut); box-shadow: 0 0 0 3px color-mix(in oklab, var(--walnut) 18%, transparent); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  border-radius: 0.6rem; padding: 0.55rem 1rem; font-weight: 600; font-size: 0.9rem;
+  background: var(--walnut); color: var(--walnut-ink); transition: filter 120ms;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn-ghost:hover { background: var(--sawdust); filter: none; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 0.9rem; }

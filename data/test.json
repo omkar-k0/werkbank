@@ -1,0 +1,4802 @@
+[
+ {
+  "text": "Note: there is a rip in the material (settee). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: termites have eaten the bottom (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, a seam has opened up no rush",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: lounge chair issue, the cushion casing has split along the edge by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, fabricate an industrial pipe frame, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and cloudy marks where glasses stood.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Chest of drawers - the top coat is flaking, please redo. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and put together the self-assembly kit.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, the padding has gone hard and thin",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Bed back panel - you can feel the coils through the seat.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: side chair issue, termites have eaten the bottom before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, create a padded one with deep buttoning by Friday",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and change the shade to dark walnut.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: it is shaky and unstable (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, give it a fresh coat in cream no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: fabricate an industrial pipe frame (wall rack). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Wall rack came in today, cloudy marks where glasses stood, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a steel leg got buckled (balcony chair). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and it is shaky and unstable. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Almirah - the finish has gone dull and patchy. before the wedding",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and make it longer by half a metre.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Steel bed came in today, a steel leg got buckled, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: work table issue, it rocks from side to side asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Sideboard came in today, the drawers will not slide, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and the leatherette is flaking.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Centre table came in today, the timber has cracked, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Bed back panel came in today, the padding has gone hard and thin, Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, ein Holzbein ist abgebrochen no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Footrest came in today, das Polster ist kaputt, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: work table issue, two slats snapped urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and the leatherette is flaking. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: change the cloth to grey linen (lounge chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: the padding has gone hard and thin (kitchen chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Bookcase - fabricate an industrial pipe frame.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, make the surface shiny instead of flat",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Bed back panel came in today, redo the seat with fresh padding and new cloth, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a counter stool from you last year and a leg snapped off.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: work table issue, make it longer by half a metre",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, create a padded one with deep buttoning",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: steel bed issue, strip the corrosion and recoat the frame before the wedding",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and the door has dropped and won't close. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, create a padded one with deep buttoning no rush",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, ein Holzbein ist abgebrochen",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and die Politur ist matt.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Centre table - termites have eaten the bottom. next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Centre table came in today, build a black iron stand for it, Wants a price first.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, the timber has cracked urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and a burn mark left by a hot pan. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Bookcase - ein Holzbein ist abgebrochen. no rush",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: outdoor bench issue, give the frame a new baked-on coat no rush",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Wall rack - cloudy marks where glasses stood. next week",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Wall rack - design and build one to fit the alcove. no rush",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, please refinish the surface asap",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, der Schrank wackelt stark",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, the cushion casing has split along the edge no rush",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: a steel leg got buckled (outdoor bench). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Lounge chair - change the cloth to grey linen.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and make the surface shiny instead of flat. Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: strip the corrosion and recoat the frame (balcony chair). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: create a padded one with deep buttoning (two-seater couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: side chair issue, little holes from woodworm",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: das Metallgestell ist verbogen (outdoor bench). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Chest of drawers came in today, put together the self-assembly kit,",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Note: the plank is split down the middle (double bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, der Schrank wackelt stark next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and ein Holzbein ist abgebrochen. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Closet came in today, termites have eaten the bottom,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (work table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Almirah - termites have eaten the bottom. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: bitte neu beizen (double bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Almirah - put together the self-assembly kit. before the wedding",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Almirah - take it apart and rebuild it in the new flat. asap",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Side chair came in today, bitte neu beizen,",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: the frame joints are loose (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Couch - re-cover it in a new material. next week",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and make it longer by half a metre.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, take it apart and rebuild it in the new flat",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and please build one in sheesham to our measurements. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, put together the self-assembly kit",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Centre table - the frame joints are loose. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Double bed came in today, a leg snapped off, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and a steel leg got buckled. Wants a price first.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: little holes from woodworm (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "High stool came in today, das Metallgestell ist verbogen, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Bookcase - put together the self-assembly kit. next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, the plank is split down the middle before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and take it apart and rebuild it in the new flat. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: the door has dropped and won't close (sideboard). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a high stool from you last year and it rocks from side to side. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Almirah came in today, die Politur ist matt, Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and the top is scuffed and marked.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, made-to-order seat pads for the bench before the wedding",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: make the surface shiny instead of flat (chest of drawers). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and add extra shelving inside. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and der Schrank wackelt stark.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, take it apart and rebuild it in the new flat asap",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Settee - redo the seat with fresh padding and new cloth. before the wedding",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a settee from you last year and made-to-order seat pads for the bench. Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: outdoor bench issue, strip the corrosion and recoat the frame",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, put together the self-assembly kit urgent",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and the frame joints are loose. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - neuer Stoff und Schaumstoff. next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: add extra shelving inside (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, the plank is split down the middle asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: give the frame a new baked-on coat (counter stool). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a lounge chair from you last year and neuer Stoff und Schaumstoff. Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Closet - the door has dropped and won't close. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and put together the self-assembly kit. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: little holes from woodworm (counter stool). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Bed back panel - create a padded one with deep buttoning. urgent",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, please refinish the surface, Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and the frame joints are loose. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, cloudy marks where glasses stood before the wedding",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: the padding has gone hard and thin (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and die Politur ist matt. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Side chair came in today, the finish has gone dull and patchy, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, the cushion casing has split along the edge",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, das Polster ist kaputt by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: add extra shelving inside (wall rack). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Almirah came in today, design and build one to fit the alcove,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Bookcase - das Metallgestell ist verbogen.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Counter stool came in today, give the frame a new baked-on coat, Pickup needed.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Balcony chair - strip the corrosion and recoat the frame. by Friday",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and made-to-order seat pads for the bench.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Two-seater couch - create a padded one with deep buttoning. no rush",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Bookcase - der Schrank wackelt stark. no rush",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - cloudy marks where glasses stood.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Chest of drawers - little holes from woodworm.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, bitte neu beizen next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Queen bed - fabricate an industrial pipe frame. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, the seat has sunk in",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, fabricate an industrial pipe frame no rush",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a balcony chair from you last year and give the frame a new baked-on coat. Pickup needed.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and the drawer keeps jamming. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: little holes from woodworm (kitchen chair). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Pouf came in today, create a padded one with deep buttoning,",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Double bed came in today, build a black iron stand for it,",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Counter stool came in today, a leg snapped off, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and build a black iron stand for it. Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: the frame joints are loose (counter stool). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: create a padded one with deep buttoning (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and the finish has gone dull and patchy. Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bookcase - the top is scuffed and marked.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Pouf came in today, change the cloth to grey linen, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: counter stool issue, the finish has gone dull and patchy no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Two-seater couch came in today, neuer Stoff und Schaumstoff, Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "High stool came in today, termites have eaten the bottom, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and the drawers will not slide.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, ein Holzbein ist abgebrochen",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Sideboard came in today, give it a fresh coat in cream, Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: the finish has gone dull and patchy (almirah). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Almirah - termites have eaten the bottom.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Closet - die Politur ist matt. urgent",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Wall rack came in today, the plank is split down the middle, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the cushion casing has split along the edge (wingback chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: give it a fresh coat in cream (queen bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - the drawers will not slide. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Kitchen chair - little holes from woodworm.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a leg snapped off (chest of drawers). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: a burn mark left by a hot pan (closet). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the leatherette is flaking (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: Stahlrahmen rostet (high stool). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Pouf - the padding has gone hard and thin. no rush",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Iron cot came in today, Stahlrahmen rostet, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: strip the corrosion and recoat the frame (steel bed). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bookcase - build a black iron stand for it. urgent",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Queen bed - little holes from woodworm. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Double bed came in today, two slats snapped, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a lounge chair from you last year and the cushion casing has split along the edge. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: outdoor bench issue, a steel leg got buckled next week",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, termites have eaten the bottom, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a side chair from you last year and a leg snapped off. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Closet - bitte neu beizen. urgent",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Steel bed came in today, a steel leg got buckled, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Closet came in today, the drawer keeps jamming,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Wall rack - bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Chest of drawers came in today, design and build one to fit the alcove,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: balcony chair issue, give the frame a new baked-on coat no rush",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: the plank is split down the middle (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "High stool came in today, strip the corrosion and recoat the frame, Wants a price first.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, a seam has opened up urgent",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, change the cloth to grey linen",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and build a black iron stand for it. Pickup needed.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Almirah - a burn mark left by a hot pan. by Friday",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: made-to-order seat pads for the bench (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, put together the self-assembly kit before the wedding",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a lounge chair from you last year and re-cover it in a new material. Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Centre table came in today, fabricate an industrial pipe frame,",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a side chair from you last year and the padding has gone hard and thin. Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Queen bed - make a made-to-measure one from oak.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and fabricate an industrial pipe frame. Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: lounge chair issue, the leatherette is flaking",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: little holes from woodworm (double bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a pouf from you last year and create a padded one with deep buttoning. Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, the top coat is flaking, please redo, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Almirah - die Politur ist matt.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, little holes from woodworm before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Queen bed came in today, the top coat is flaking, please redo, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Centre table - build a black iron stand for it.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a footrest from you last year and re-cover it in a new material. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, cloudy marks where glasses stood, Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, the cushion casing has split along the edge urgent",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and der Schrank wackelt stark. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Queen bed - build a black iron stand for it.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Chest of drawers - take it apart and rebuild it in the new flat. urgent",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, ein Holzbein ist abgebrochen by Friday",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Bookcase came in today, der Schrank wackelt stark, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Kitchen chair came in today, little holes from woodworm, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Work table - it rocks from side to side. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a pouf from you last year and made-to-order seat pads for the bench. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Settee came in today, a seam has opened up, Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Closet - please refinish the surface. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Bookcase - take it apart and rebuild it in the new flat. before the wedding",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, the top coat is flaking, please redo, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, little holes from woodworm asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, die Politur ist matt,",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. High stool - strip the corrosion and recoat the frame. asap",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Side chair came in today, a leg snapped off, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Wingback chair - a seam has opened up. next week",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the drawers will not slide next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and add extra shelving inside.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and two slats snapped.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Sideboard - take it apart and rebuild it in the new flat. by Friday",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: give it a fresh coat in cream (double bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, the cushion casing has split along the edge by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a side chair from you last year and bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Sideboard - der Schrank wackelt stark. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, the finish has gone dull and patchy no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a pouf from you last year and made-to-order seat pads for the bench. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: you can feel the coils through the seat (two-seater couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Wall rack - the timber has cracked. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: couch issue, create a padded one with deep buttoning next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Bed back panel - the leatherette is flaking. by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, make the surface shiny instead of flat",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: work table issue, the timber has cracked by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a balcony chair from you last year and give the frame a new baked-on coat. Wants a price first.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Kitchen chair - redo the seat with fresh padding and new cloth.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Wall rack came in today, make it longer by half a metre,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Double bed - termites have eaten the bottom. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, fabricate an industrial pipe frame,",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Sideboard - the door has dropped and won't close.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and the door has dropped and won't close. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: little holes from woodworm (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: balcony chair issue, strip the corrosion and recoat the frame urgent",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, the door has dropped and won't close before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the timber has cracked next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a steel leg got buckled (centre table). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Pouf - the seat has sunk in. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: cloudy marks where glasses stood (almirah). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, bitte neu beizen",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: work table issue, a burn mark left by a hot pan asap",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Closet came in today, please refinish the surface, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Queen bed - fabricate an industrial pipe frame. urgent",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, the top is scuffed and marked",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: bitte neu beizen (queen bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: die Politur ist matt (almirah). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Centre table - little holes from woodworm. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Side chair came in today, it is shaky and unstable, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Wingback chair came in today, das Polster ist kaputt,",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, the top is scuffed and marked asap",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: redo the seat with fresh padding and new cloth (wingback chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, change the cloth to grey linen asap",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and two slats snapped. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, change the cloth to grey linen no rush",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Queen bed came in today, please build one in sheesham to our measurements, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: make the surface shiny instead of flat (almirah). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: lounge chair issue, the padding has gone hard and thin by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: make a made-to-measure one from oak (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Queen bed came in today, ein Holzbein ist abgebrochen,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the top is scuffed and marked asap",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Centre table - add extra shelving inside. urgent",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Chest of drawers - ein Holzbein ist abgebrochen. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Counter stool - termites have eaten the bottom. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Sideboard - add extra shelving inside. urgent",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - the leatherette is flaking. asap",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: Stahlrahmen rostet (outdoor bench). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: work table issue, a burn mark left by a hot pan next week",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and make a made-to-measure one from oak. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, the drawer keeps jamming next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Double bed - take it apart and rebuild it in the new flat.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, change the cloth to grey linen next week",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Side chair - it rocks from side to side. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Centre table - the joint where the steel pieces meet has cracked. by Friday",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, ein Holzbein ist abgebrochen, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Sideboard - make it longer by half a metre. before the wedding",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and put together the self-assembly kit.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: the cushion casing has split along the edge (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Side chair - ein Holzbein ist abgebrochen. asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, build a black iron stand for it asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and the drawer keeps jamming.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, fabricate an industrial pipe frame,",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, cloudy marks where glasses stood before the wedding",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a pouf from you last year and made-to-order seat pads for the bench. Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and little holes from woodworm. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: build a black iron stand for it (work table). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Counter stool - it is shaky and unstable. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Double bed - put together the self-assembly kit. before the wedding",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, make a made-to-measure one from oak, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, build a black iron stand for it",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Two-seater couch came in today, redo the seat with fresh padding and new cloth, Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and the door has dropped and won't close. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and a burn mark left by a hot pan. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Sideboard - termites have eaten the bottom. asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and Stahlrahmen rostet. Pickup needed.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and the top is scuffed and marked. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Chest of drawers - a burn mark left by a hot pan. by Friday",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Kitchen chair - redo the seat with fresh padding and new cloth. by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: the plank is split down the middle (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and add extra shelving inside. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Iron cot came in today, a steel leg got buckled, Wants a price first.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a side chair from you last year and die Politur ist matt. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Footrest - redo the seat with fresh padding and new cloth. no rush",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: it is covered in corrosion (balcony chair). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: work table issue, cloudy marks where glasses stood",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Double bed - take it apart and rebuild it in the new flat.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: the seat has sunk in (lounge chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Outdoor bench - it is covered in corrosion. asap",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, create a padded one with deep buttoning",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Queen bed - change the shade to dark walnut. by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Settee - change the cloth to grey linen. by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Bookcase came in today, bitte neu beizen, Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Sideboard came in today, the drawer keeps jamming, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Side chair - give it a fresh coat in cream. by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, make a made-to-measure one from oak, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, der Schrank wackelt stark, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and the top coat is flaking, please redo. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, fabricate an industrial pipe frame, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Queen bed - build a black iron stand for it. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, the finish has gone dull and patchy before the wedding",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: two-seater couch issue, change the cloth to grey linen",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Sideboard - the drawers will not slide. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and build a black iron stand for it. Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, make the surface shiny instead of flat next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, you can feel the coils through the seat urgent",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and make the surface shiny instead of flat. Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, the cushion casing has split along the edge before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Lounge chair came in today, re-cover it in a new material, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a steel bed from you last year and it is covered in corrosion.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Chest of drawers - the drawer keeps jamming. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Bookcase came in today, please build one in sheesham to our measurements, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: build a black iron stand for it (wall rack). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Two-seater couch - a seam has opened up. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, make it longer by half a metre next week",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Almirah came in today, please refinish the surface, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Sideboard came in today, der Schrank wackelt stark,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Bed back panel - change the cloth to grey linen.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: a steel leg got buckled (steel bed). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, neuer Stoff und Schaumstoff",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Sideboard - put together the self-assembly kit. next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, change the shade to dark walnut no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a couch from you last year and neuer Stoff und Schaumstoff.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and add extra shelving inside. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - the top coat is flaking, please redo. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Footrest - re-cover it in a new material. by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Wingback chair - there is a rip in the material. by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Queen bed - build a black iron stand for it. urgent",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, little holes from woodworm, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, the leatherette is flaking",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, design and build one to fit the alcove, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and the cushion casing has split along the edge. Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Work table - ein Holzbein ist abgebrochen. next week",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Couch came in today, the leatherette is flaking,",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Bed back panel - das Polster ist kaputt.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Outdoor bench - strip the corrosion and recoat the frame. no rush",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, fabricate an industrial pipe frame, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Wall rack - take it apart and rebuild it in the new flat. next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: take it apart and rebuild it in the new flat (almirah). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Side chair came in today, please refinish the surface, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, the timber has cracked no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, little holes from woodworm next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: high stool issue, it is covered in corrosion",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, please refinish the surface by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, two slats snapped by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Bookcase came in today, make it longer by half a metre,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Couch - you can feel the coils through the seat. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, das Polster ist kaputt asap",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: Stahlrahmen rostet (queen bed). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Kitchen chair came in today, a leg snapped off, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: the timber has cracked (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, termites have eaten the bottom, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Sideboard - the top coat is flaking, please redo. asap",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Wall rack - build a black iron stand for it. before the wedding",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Footrest came in today, re-cover it in a new material, Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, two slats snapped by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: the plank is split down the middle (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Double bed - it is covered in corrosion. urgent",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and take it apart and rebuild it in the new flat.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: a steel leg got buckled (counter stool). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the door has dropped and won't close (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Steel bed - a steel leg got buckled. next week",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Side chair - make the surface shiny instead of flat. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, das Metallgestell ist verbogen",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: there is a rip in the material (lounge chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Steel bed - it is covered in corrosion. asap",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Settee - redo the seat with fresh padding and new cloth. by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and fabricate an industrial pipe frame. Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Settee came in today, change the cloth to grey linen, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Side chair came in today, there is a rip in the material, Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Centre table came in today, the joint where the steel pieces meet has cracked, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, please build one in sheesham to our measurements urgent",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: add extra shelving inside (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, change the cloth to grey linen",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Balcony chair came in today, the joint where the steel pieces meet has cracked,",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and two slats snapped. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and take it apart and rebuild it in the new flat.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Note: the top coat is flaking, please redo (double bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Almirah - two slats snapped.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and add extra shelving inside.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Bed back panel came in today, made-to-order seat pads for the bench,",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Work table came in today, a steel leg got buckled, Wants a price first.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and fabricate an industrial pipe frame.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and build a black iron stand for it.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, make it longer by half a metre before the wedding",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: couch issue, neuer Stoff und Schaumstoff by Friday",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (side chair). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Almirah came in today, the top is scuffed and marked,",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, create a padded one with deep buttoning next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Kitchen chair came in today, change the shade to dark walnut, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Almirah - take it apart and rebuild it in the new flat. next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, fabricate an industrial pipe frame, Wants a price first.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: build a black iron stand for it (wall rack). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, the leatherette is flaking",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: please refinish the surface (chest of drawers). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Chest of drawers - cloudy marks where glasses stood. by Friday",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Closet came in today, make a made-to-measure one from oak, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, cloudy marks where glasses stood by Friday",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Steel bed - das Metallgestell ist verbogen. no rush",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Double bed - fabricate an industrial pipe frame. urgent",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: der Schrank wackelt stark (wall rack). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: counter stool issue, give the frame a new baked-on coat",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, the door has dropped and won't close by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, der Schrank wackelt stark by Friday",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, design and build one to fit the alcove",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, the top is scuffed and marked next week",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, the cushion casing has split along the edge",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: pouf issue, made-to-order seat pads for the bench next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Wall rack came in today, termites have eaten the bottom, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: there is a rip in the material (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and put together the self-assembly kit.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Sideboard came in today, a burn mark left by a hot pan, Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Iron cot came in today, give the frame a new baked-on coat, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, the drawer keeps jamming by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "High stool came in today, please refinish the surface,",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Closet came in today, the timber has cracked,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Bookcase - der Schrank wackelt stark. before the wedding",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Iron cot - strip the corrosion and recoat the frame. by Friday",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Lounge chair - das Polster ist kaputt. asap",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a iron cot from you last year and it is covered in corrosion. Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a seam has opened up (two-seater couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, design and build one to fit the alcove,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and the drawers will not slide. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Bed back panel came in today, a seam has opened up, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Footrest - the padding has gone hard and thin. next week",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Sideboard - der Schrank wackelt stark. by Friday",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a lounge chair from you last year and the seat has sunk in. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Centre table - build a black iron stand for it. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a outdoor bench from you last year and the joint where the steel pieces meet has cracked. Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, create a padded one with deep buttoning before the wedding",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, the top coat is flaking, please redo next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Kitchen chair - re-cover it in a new material. by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: little holes from woodworm (wall rack). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and das Metallgestell ist verbogen. Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: the plank is split down the middle (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, make it longer by half a metre before the wedding",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, the plank is split down the middle urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Queen bed - a leg snapped off.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: strip the corrosion and recoat the frame (balcony chair). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and the door has dropped and won't close. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: build a black iron stand for it (bookcase). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a iron cot from you last year and strip the corrosion and recoat the frame. Wants a price first.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Footrest came in today, change the cloth to grey linen,",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: it is shaky and unstable (kitchen chair). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Sideboard - the door has dropped and won't close. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Almirah came in today, the timber has cracked, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a high stool from you last year and please refinish the surface.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Double bed - the plank is split down the middle.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and it is covered in corrosion. Wants a price first.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a high stool from you last year and change the shade to dark walnut.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: change the cloth to grey linen (footrest). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and das Polster ist kaputt.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Pouf came in today, change the cloth to grey linen, Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and two slats snapped. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a kitchen chair from you last year and neuer Stoff und Schaumstoff.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, the top coat is flaking, please redo, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: there is a rip in the material (lounge chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Almirah - the door has dropped and won't close. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Double bed - fabricate an industrial pipe frame. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Bed back panel came in today, create a padded one with deep buttoning, Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Wingback chair came in today, the leatherette is flaking, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a footrest from you last year and re-cover it in a new material. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and the door has dropped and won't close.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, die Politur ist matt by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Kitchen chair came in today, bitte neu beizen, Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Wall rack came in today, design and build one to fit the alcove, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Centre table came in today, add extra shelving inside, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Pouf - made-to-order seat pads for the bench. by Friday",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and the joint where the steel pieces meet has cracked. Pickup needed.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and make it longer by half a metre. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: the timber has cracked (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, fabricate an industrial pipe frame",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the drawers will not slide no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a couch from you last year and you can feel the coils through the seat.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Queen bed - das Metallgestell ist verbogen.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: re-cover it in a new material (footrest). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: the padding has gone hard and thin (settee). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, the timber has cracked, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, make it longer by half a metre,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: please refinish the surface (counter stool). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, cloudy marks where glasses stood asap",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: make it longer by half a metre (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, add extra shelving inside before the wedding",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and a burn mark left by a hot pan. Pickup needed.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and it is covered in corrosion.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Work table - a burn mark left by a hot pan.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Chest of drawers - it rocks from side to side.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: bitte neu beizen (double bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: a burn mark left by a hot pan (almirah). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, the plank is split down the middle by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, neuer Stoff und Schaumstoff urgent",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and add extra shelving inside. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Centre table came in today, it rocks from side to side, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, der Schrank wackelt stark",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: change the cloth to grey linen (lounge chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Lounge chair - das Polster ist kaputt.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and fabricate an industrial pipe frame. Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and please build one in sheesham to our measurements. Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: side chair issue, redo the seat with fresh padding and new cloth no rush",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Bookcase - fabricate an industrial pipe frame. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Pouf - you can feel the coils through the seat. next week",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Outdoor bench - the joint where the steel pieces meet has cracked. asap",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and the plank is split down the middle. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: a burn mark left by a hot pan (wall rack). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and design and build one to fit the alcove. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: iron cot issue, strip the corrosion and recoat the frame no rush",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, the leatherette is flaking",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and please build one in sheesham to our measurements.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, please refinish the surface by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and die Politur ist matt. Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, the frame joints are loose,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, the timber has cracked,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Almirah came in today, please build one in sheesham to our measurements, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Chest of drawers - the door has dropped and won't close. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and little holes from woodworm. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Settee came in today, the seat has sunk in, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Double bed - it is shaky and unstable.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and the top is scuffed and marked. Pickup needed.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Sideboard - add extra shelving inside. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Almirah - change the shade to dark walnut. urgent",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, made-to-order seat pads for the bench",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Chest of drawers came in today, change the shade to dark walnut, Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: give it a fresh coat in cream (side chair). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: there is a rip in the material (couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, take it apart and rebuild it in the new flat, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Footrest - re-cover it in a new material.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: give it a fresh coat in cream (closet). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, add extra shelving inside, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a wall rack from you last year and cloudy marks where glasses stood. Wants a price first.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, the finish has gone dull and patchy by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: put together the self-assembly kit (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: pouf issue, redo the seat with fresh padding and new cloth urgent",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a side chair from you last year and the seat has sunk in.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Closet came in today, the drawer keeps jamming, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: make it longer by half a metre (wall rack). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (sideboard). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Work table came in today, build a black iron stand for it, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: there is a rip in the material (wingback chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a lounge chair from you last year and the leatherette is flaking. Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the drawer keeps jamming next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Side chair came in today, the frame joints are loose, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the door has dropped and won't close (almirah). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Queen bed - take it apart and rebuild it in the new flat. before the wedding",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - made-to-order seat pads for the bench. urgent",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Outdoor bench came in today, give the frame a new baked-on coat, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and it is shaky and unstable.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: put together the self-assembly kit (double bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Couch - create a padded one with deep buttoning.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: termites have eaten the bottom (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Chest of drawers came in today, add extra shelving inside, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: the seat has sunk in (settee). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a leg snapped off (side chair). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Double bed - ein Holzbein ist abgebrochen.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Wingback chair came in today, change the cloth to grey linen,",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Sideboard - make it longer by half a metre. by Friday",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, little holes from woodworm next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Steel bed - the joint where the steel pieces meet has cracked. next week",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a settee from you last year and change the cloth to grey linen. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: made-to-order seat pads for the bench (pouf). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and give it a fresh coat in cream. Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: make a made-to-measure one from oak (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bookcase issue, der Schrank wackelt stark no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, the plank is split down the middle next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the frame joints are loose (work table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, give it a fresh coat in cream no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a kitchen chair from you last year and it is shaky and unstable. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a leg snapped off (high stool). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, the drawers will not slide urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: centre table issue, the plank is split down the middle next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Iron cot came in today, the joint where the steel pieces meet has cracked, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and the drawer keeps jamming. Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: create a padded one with deep buttoning (pouf). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Settee came in today, the cushion casing has split along the edge, Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Almirah - the drawers will not slide. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Almirah came in today, the drawer keeps jamming, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a kitchen chair from you last year and the padding has gone hard and thin. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the timber has cracked (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Wall rack - fabricate an industrial pipe frame. no rush",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and die Politur ist matt. Wants a price first.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and the drawer keeps jamming.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Wall rack came in today, the finish has gone dull and patchy,",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Closet - termites have eaten the bottom. asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: make the surface shiny instead of flat (queen bed). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, bitte neu beizen no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Wall rack - add extra shelving inside.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: neuer Stoff und Schaumstoff (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Counter stool - please refinish the surface.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: the drawer keeps jamming (sideboard). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Double bed - the plank is split down the middle. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: a burn mark left by a hot pan (chest of drawers). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: make a made-to-measure one from oak (chest of drawers). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: make a made-to-measure one from oak (double bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, the top coat is flaking, please redo before the wedding",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: the frame joints are loose (work table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Closet - the drawers will not slide. no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, little holes from woodworm",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the top is scuffed and marked (chest of drawers). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, the drawer keeps jamming before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Bed back panel - the padding has gone hard and thin. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and it rocks from side to side. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, the plank is split down the middle,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Wall rack came in today, a burn mark left by a hot pan,",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, the frame joints are loose asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: counter stool issue, little holes from woodworm asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: a seam has opened up (wingback chair). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Couch came in today, a seam has opened up, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Counter stool - a steel leg got buckled. urgent",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: neuer Stoff und Schaumstoff (pouf). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Work table - change the shade to dark walnut. next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, please build one in sheesham to our measurements",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, a steel leg got buckled next week",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Sideboard - add extra shelving inside. by Friday",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a two-seater couch from you last year and das Polster ist kaputt. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: the drawer keeps jamming (closet). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Almirah - give it a fresh coat in cream. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: add extra shelving inside (work table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a counter stool from you last year and der Schrank wackelt stark.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a two-seater couch from you last year and das Polster ist kaputt.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, put together the self-assembly kit next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Almirah came in today, design and build one to fit the alcove, Will drop it off Monday.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Almirah - two slats snapped. next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Wall rack - add extra shelving inside.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: strip the corrosion and recoat the frame (iron cot). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, add extra shelving inside",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: the frame joints are loose (kitchen chair). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a footrest from you last year and create a padded one with deep buttoning. Photos sent on WhatsApp.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Centre table - make it longer by half a metre. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and the top is scuffed and marked. Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Sideboard came in today, the door has dropped and won't close,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Wingback chair - the leatherette is flaking. no rush",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a two-seater couch from you last year and neuer Stoff und Schaumstoff. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Double bed came in today, little holes from woodworm,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, please build one in sheesham to our measurements next week",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, add extra shelving inside",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Kitchen chair - make the surface shiny instead of flat. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Double bed - take it apart and rebuild it in the new flat. next week",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a sideboard from you last year and die Politur ist matt. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Sideboard - the drawers will not slide. urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: outdoor bench issue, the joint where the steel pieces meet has cracked before the wedding",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "High stool came in today, a steel leg got buckled, Pickup needed.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Counter stool came in today, give the frame a new baked-on coat,",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, das Polster ist kaputt",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and termites have eaten the bottom. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: create a padded one with deep buttoning (couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: the timber has cracked (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a two-seater couch from you last year and a seam has opened up. Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: lounge chair issue, the cushion casing has split along the edge before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Footrest - create a padded one with deep buttoning. urgent",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "High stool came in today, give the frame a new baked-on coat,",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and make the surface shiny instead of flat. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Pouf - the padding has gone hard and thin. no rush",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Note: little holes from woodworm (queen bed). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Becker. Queen bed - fabricate an industrial pipe frame. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Centre table - fabricate an industrial pipe frame. no rush",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: settee issue, das Polster ist kaputt",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, bitte neu beizen before the wedding",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, create a padded one with deep buttoning next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Bookcase came in today, add extra shelving inside, Wants a price first.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, a seam has opened up urgent",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: das Metallgestell ist verbogen (double bed). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Couch - the cushion casing has split along the edge. next week",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, made-to-order seat pads for the bench",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, it is covered in corrosion urgent",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Wall rack came in today, make a made-to-measure one from oak,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Queen bed came in today, Stahlrahmen rostet,",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a chest of drawers from you last year and put together the self-assembly kit. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - you can feel the coils through the seat. asap",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Sideboard - ein Holzbein ist abgebrochen. asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Sideboard - add extra shelving inside. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - create a padded one with deep buttoning. next week",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Chest of drawers came in today, the door has dropped and won't close,",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and fabricate an industrial pipe frame. Pickup needed.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bed back panel from you last year and the leatherette is flaking. Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Wall rack - make it longer by half a metre. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, fabricate an industrial pipe frame next week",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Work table came in today, das Metallgestell ist verbogen, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: ein Holzbein ist abgebrochen (work table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and the drawers will not slide. Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: queen bed issue, build a black iron stand for it by Friday",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a closet from you last year and bitte neu beizen. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: neuer Stoff und Schaumstoff (couch). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: make it longer by half a metre (wall rack). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, a burn mark left by a hot pan no rush",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Sideboard - the drawers will not slide. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Queen bed - build a black iron stand for it. by Friday",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Footrest came in today, redo the seat with fresh padding and new cloth,",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Herr Yilmaz. Bed back panel - the seat has sunk in.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Centre table came in today, the timber has cracked, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and give it a fresh coat in cream. Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: two-seater couch issue, made-to-order seat pads for the bench",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: bed back panel issue, create a padded one with deep buttoning asap",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: work table issue, das Metallgestell ist verbogen urgent",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Pouf - made-to-order seat pads for the bench.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: counter stool issue, a leg snapped off before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Lounge chair - the seat has sunk in. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Khan. Centre table - please build one in sheesham to our measurements.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Two-seater couch came in today, there is a rip in the material, Wants a price first.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Sideboard - die Politur ist matt.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: closet issue, please build one in sheesham to our measurements no rush",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Frau Weber. Work table - design and build one to fit the alcove. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: counter stool issue, the frame joints are loose urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wingback chair issue, the cushion casing has split along the edge asap",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Closet came in today, the drawer keeps jamming, Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Almirah - ein Holzbein ist abgebrochen. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and add extra shelving inside.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Frau Weber. Kitchen chair - there is a rip in the material. before the wedding",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a iron cot from you last year and a steel leg got buckled. Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Kitchen chair - the frame joints are loose. asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: bitte neu beizen (centre table). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: kitchen chair issue, the finish has gone dull and patchy",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and der Schrank wackelt stark.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Note: create a padded one with deep buttoning (bed back panel). Customer wants a quote.",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Bed back panel - you can feel the coils through the seat. by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and a burn mark left by a hot pan.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and please build one in sheesham to our measurements. Pickup needed.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Counter stool came in today, strip the corrosion and recoat the frame, Photos sent on WhatsApp.",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Note: make it longer by half a metre (centre table). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Steel bed came in today, strip the corrosion and recoat the frame,",
+  "capability": "metal",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mr Khan. Centre table - it is shaky and unstable. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Note: the drawer keeps jamming (chest of drawers). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and die Politur ist matt. Will drop it off Monday.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Hello, I bought a queen bed from you last year and design and build one to fit the alcove.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Sideboard came in today, design and build one to fit the alcove,",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: balcony chair issue, the joint where the steel pieces meet has cracked",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: side chair issue, termites have eaten the bottom by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: footrest issue, redo the seat with fresh padding and new cloth by Friday",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: almirah issue, the door has dropped and won't close asap",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Bed back panel came in today, made-to-order seat pads for the bench,",
+  "capability": "upholstery",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a almirah from you last year and der Schrank wackelt stark.",
+  "capability": "carpentry",
+  "jobType": "assembly",
+  "holdout": true
+ },
+ {
+  "text": "Bookcase came in today, please build one in sheesham to our measurements, Photos sent on WhatsApp.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: it is covered in corrosion (counter stool). Customer wants a quote.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: lounge chair issue, you can feel the coils through the seat by Friday",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mr Becker. Almirah - cloudy marks where glasses stood. by Friday",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Wingback chair came in today, the leatherette is flaking, Pickup needed.",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Almirah - please build one in sheesham to our measurements.",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "Note: the plank is split down the middle (bookcase). Customer wants a quote.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a double bed from you last year and a leg snapped off.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: sideboard issue, it is shaky and unstable no rush",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Ravi. Work table - fabricate an industrial pipe frame. asap",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: chest of drawers issue, please refinish the surface next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "WhatsApp msg: couch issue, there is a rip in the material",
+  "capability": "upholstery",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: wall rack issue, fabricate an industrial pipe frame before the wedding",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, make the surface shiny instead of flat next week",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Centre table came in today, it is covered in corrosion, Will drop it off Monday.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: outdoor bench issue, a steel leg got buckled next week",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a work table from you last year and bitte neu beizen.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Note: bitte neu beizen (chest of drawers). Customer wants a quote.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and a steel leg got buckled. Wants a price first.",
+  "capability": "metal",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Chest of drawers came in today, the top coat is flaking, please redo,",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Ravi. Closet - the timber has cracked. next week",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. High stool - little holes from woodworm. before the wedding",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Patel family. Work table - fabricate an industrial pipe frame. next week",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and cloudy marks where glasses stood. Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - make the surface shiny instead of flat. by Friday",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and bitte neu beizen. Wants a price first.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Wall rack came in today, change the shade to dark walnut, Pickup needed.",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Almirah came in today, die Politur ist matt, Photos sent on WhatsApp.",
+  "capability": "finishing",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: closet issue, make the surface shiny instead of flat before the wedding",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Mrs Sharma. Closet - please refinish the surface. no rush",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": false
+ },
+ {
+  "text": "Phone call from Anna. Queen bed - bitte neu beizen. asap",
+  "capability": "finishing",
+  "jobType": "refurbish",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Patel family. Work table - der Schrank wackelt stark. asap",
+  "capability": "carpentry",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a bookcase from you last year and build a black iron stand for it.",
+  "capability": "metal",
+  "jobType": "custom",
+  "holdout": true
+ },
+ {
+  "text": "Phone call from Anna. Centre table - it is shaky and unstable. by Friday",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "WhatsApp msg: double bed issue, der Schrank wackelt stark urgent",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": true
+ },
+ {
+  "text": "Hello, I bought a centre table from you last year and a leg snapped off.",
+  "capability": "carpentry",
+  "jobType": "repair",
+  "holdout": false
+ },
+ {
+  "text": "Settee came in today, change the cloth to grey linen, Will drop it off Monday.",
+  "capability": "upholstery",
+  "jobType": "refurbish",
+  "holdout": false
+ }
+]

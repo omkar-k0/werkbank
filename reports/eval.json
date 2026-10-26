@@ -1,0 +1,182 @@
+{
+ "test": {
+  "n": 800,
+  "top1": 0.74125,
+  "jobType": 0.70375,
+  "autoRate": 0.18875,
+  "autoAcc": 0.9536423841059603,
+  "checkRate": 0.45,
+  "checkAcc": 0.7916666666666666,
+  "reviewRate": 0.36125,
+  "routedAcc": 0.8395303326810176,
+  "confusion": {
+   "upholstery": {
+    "finishing": 25,
+    "upholstery": 107,
+    "carpentry": 54,
+    "metal": 1
+   },
+   "carpentry": {
+    "carpentry": 277,
+    "upholstery": 29,
+    "metal": 16,
+    "finishing": 7
+   },
+   "metal": {
+    "metal": 94,
+    "carpentry": 28,
+    "upholstery": 11,
+    "finishing": 1
+   },
+   "finishing": {
+    "finishing": 115,
+    "metal": 10,
+    "upholstery": 11,
+    "carpentry": 14
+   }
+  }
+ },
+ "handwritten": {
+  "n": 60,
+  "top1": 0.8833333333333333,
+  "jobType": 0.75,
+  "autoRate": 0.4,
+  "autoAcc": 0.9583333333333334,
+  "checkRate": 0.36666666666666664,
+  "checkAcc": 0.9090909090909091,
+  "reviewRate": 0.23333333333333334,
+  "routedAcc": 0.9347826086956522,
+  "confusion": {
+   "upholstery": {
+    "upholstery": 14,
+    "finishing": 1,
+    "carpentry": 1
+   },
+   "finishing": {
+    "finishing": 10,
+    "carpentry": 1,
+    "upholstery": 1
+   },
+   "carpentry": {
+    "carpentry": 18,
+    "finishing": 1
+   },
+   "metal": {
+    "metal": 11,
+    "carpentry": 1,
+    "upholstery": 1
+   }
+  },
+  "misses": [
+   {
+    "text": "need a study table built into the corner, 120x60, white laminate top",
+    "truth": "carpentry",
+    "got": "finishing",
+    "gate": "auto",
+    "conf": 0.93
+   },
+   {
+    "text": "old teak chest, grandma's, wants it restored. finish is black and sticky",
+    "truth": "finishing",
+    "got": "carpentry",
+    "gate": "check",
+    "conf": 0.74
+   },
+   {
+    "text": "recliner mechanism stuck, footrest won't come out",
+    "truth": "metal",
+    "got": "upholstery",
+    "gate": "check",
+    "conf": 0.66
+   }
+  ]
+ },
+ "curve": [
+  {
+   "corrections": 0,
+   "top1": 0.755,
+   "autoRate": 0.2075,
+   "autoAcc": 0.9759036144578314,
+   "reviewRate": 0.3475
+  },
+  {
+   "corrections": 25,
+   "top1": 0.785,
+   "autoRate": 0.4,
+   "autoAcc": 0.9375,
+   "reviewRate": 0.225
+  },
+  {
+   "corrections": 50,
+   "top1": 0.92,
+   "autoRate": 0.6375,
+   "autoAcc": 0.9921568627450981,
+   "reviewRate": 0.125
+  },
+  {
+   "corrections": 100,
+   "top1": 0.9675,
+   "autoRate": 0.825,
+   "autoAcc": 0.996969696969697,
+   "reviewRate": 0.0625
+  },
+  {
+   "corrections": 200,
+   "top1": 0.985,
+   "autoRate": 0.875,
+   "autoAcc": 1,
+   "reviewRate": 0.04
+  },
+  {
+   "corrections": 400,
+   "top1": 1,
+   "autoRate": 0.9025,
+   "autoAcc": 1,
+   "reviewRate": 0.0375
+  }
+ ],
+ "sweep": [
+  {
+   "auto": 0.5,
+   "margin": 0.2,
+   "share": 0.7175,
+   "acc": 0.8275261324041812
+  },
+  {
+   "auto": 0.6,
+   "margin": 0.3,
+   "share": 0.565,
+   "acc": 0.8451327433628318
+  },
+  {
+   "auto": 0.7,
+   "margin": 0.4,
+   "share": 0.43625,
+   "acc": 0.8653295128939829
+  },
+  {
+   "auto": 0.8,
+   "margin": 0.5,
+   "share": 0.24125,
+   "acc": 0.9119170984455959
+  },
+  {
+   "auto": 0.85,
+   "margin": 0.5,
+   "share": 0.18875,
+   "acc": 0.9536423841059603
+  },
+  {
+   "auto": 0.9,
+   "margin": 0.5,
+   "share": 0.11875,
+   "acc": 0.968421052631579
+  },
+  {
+   "auto": 0.95,
+   "margin": 0.5,
+   "share": 0.04375,
+   "acc": 1
+  }
+ ]
+}
