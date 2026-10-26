@@ -54,7 +54,7 @@ export default function Home() {
           <p className="mt-2 max-w-2xl text-muted">
             Evaluated on requests the model never trained on. Training data is synthetic, so treat real-world numbers as
             unknown until a shop has used it.{" "}
-            <a className="underline" href="https://github.com/krakmo1/werkbank/blob/main/reports/eval.md">Full report</a>.
+            <a className="underline" href="https://github.com/omkar-k0/werkbank/blob/main/reports/eval.md">Full report</a>.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[

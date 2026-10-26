@@ -20,7 +20,7 @@ export function SiteFooter() {
       <div className="flex flex-col justify-between gap-2 border-t border-line pt-6 sm:flex-row">
         <span>Werkbank. A portfolio project by Omkar Khadilkar.</span>
         <span>
-          <a className="underline" href="https://github.com/krakmo1/werkbank">Source & evaluation on GitHub</a>
+          <a className="underline" href="https://github.com/omkar-k0/werkbank">Source & evaluation on GitHub</a>
         </span>
       </div>
     </footer>
