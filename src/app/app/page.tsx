@@ -12,6 +12,9 @@ export default async function Board({ searchParams }: { searchParams: Promise<{ 
   return s.role === "owner" ? <OwnerBoard sp={sp} /> : <WorkshopBoard />;
 }
 
+// Server component, so reading the clock per request is intended.
+const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+
 async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: string } }) {
   const s = await requireSession();
   const status = (["open", "done", "all"].includes(sp.status ?? "") ? sp.status : "open") as OrderFilter["status"];
@@ -21,7 +24,7 @@ async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: stri
     listWorkshops(s),
   ]);
   const open = all.filter((o) => o.status !== "done");
-  const weekAgo = new Date(Date.now() - 7 * 86_400_000).toISOString();
+  const weekAgo = daysAgoIso(7);
   const kpis = [
     ["Open orders", open.length, ""],
     ["Overdue", open.filter(isOverdue).length, "text-rust"],
