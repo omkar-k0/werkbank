@@ -94,4 +94,12 @@ export const SCHEMA = [
     job_type TEXT,
     at TIMESTAMPTZ NOT NULL DEFAULT now()
   )`,
+  // Owners sign in with Google (google_sub, no password). Workshop staff have a globally unique
+  // username and a password the owner sets and resets, and usually no email.
+  `ALTER TABLE users ADD COLUMN IF NOT EXISTS username TEXT`,
+  `ALTER TABLE users ADD COLUMN IF NOT EXISTS google_sub TEXT`,
+  `ALTER TABLE users ALTER COLUMN email DROP NOT NULL`,
+  `ALTER TABLE users ALTER COLUMN password_hash DROP NOT NULL`,
+  `CREATE UNIQUE INDEX IF NOT EXISTS users_username_idx ON users (username)`,
+  `CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub_idx ON users (google_sub)`,
 ];

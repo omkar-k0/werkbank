@@ -34,6 +34,14 @@ that went quiet. Never put the client's name in the repo or on the site. The dem
   `completed_at` hold the derived overall result (done only when both parts are). A workshop user's `getOrder` /
   `listOrders` rows show their own part's progress. Splitting is a planning decision, so it is not a correction
   for the model. Reports count each workshop per part.
+- Auth: owners sign in with Google only (`src/lib/google.ts`, routes under `src/app/api/auth/google/`); first
+  sign-in with `mode=signup` creates the shop. The owner's lookup is by `users.google_sub`; a legacy owner row with the
+  same Google-verified email is claimed once. Workshop staff have a globally unique lowercase `username` + password,
+  created and reset by their owner (`createWorkshopUser`, `resetWorkshopUserPassword`); staff have no email.
+  Flow tokens carry `aud: google-flow` so they can never be read as sessions. Needs `GOOGLE_CLIENT_ID`,
+  `GOOGLE_CLIENT_SECRET` (setup in `docs/google-auth-setup.md`), optional `APP_URL`. Lost Google account = Omkar
+  changes `google_sub`/email in the DB by hand. The live Google round trip is untested until credentials exist.
+  Open gaps: no login rate limit; staff sessions survive a password reset.
 - i18n (EN/DE, `src/lib/i18n/`): `messages.ts` holds both dictionaries (German must have every key; a test checks
   keys and {placeholders}). Language = `wb_lang` cookie, else Accept-Language, else English. Server pages use
   `await getT()`, client components `useT()`. Routing reasons and history lines are stored in English in the DB and
@@ -47,7 +55,7 @@ v1: hand-written auto-routed 40% at 95.8% accuracy; after 100 corrections, 82.5%
 Job-type accuracy about 70% (weak). Never quote the 400-correction row.
 
 ## Commands
-`npm run dev` · `npm test` (41 tests: classifier, tenant isolation, split orders, i18n) · `npm run build` · `npm run model`
+`npm run dev` · `npm test` (56 tests: classifier, tenant isolation, split orders, auth, i18n) · `npm run build` · `npm run model`
 
 ## Open item from v1
 Check whether `werkbank-live-fix.patch` was applied (README live URL + `export const maxDuration = 60`

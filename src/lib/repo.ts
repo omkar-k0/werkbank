@@ -14,6 +14,7 @@ import {
 import type { GateThresholds } from "./classifier/router";
 import { getDb, type Db } from "./db";
 import type { Session } from "./auth";
+import { normalizeUsername, USERNAME_RULE } from "./username";
 
 // All tenant data access lives here. Rule: every query filters on the
 // caller's shop_id, and workshop users are additionally pinned to their
@@ -64,13 +65,38 @@ function fixDates<T extends object>(row: T): T {
 
 // ---------- shops, users, auth ----------
 
-export async function signup(input: { shopName: string; name: string; email: string; password: string; plan: string }) {
+export interface GoogleProfile { sub: string; email: string; name: string }
+
+const PLANS = ["trial", "starter", "pro", "lifetime"];
+const isUnique = (e: unknown) => /duplicate|unique/i.test(String((e as Error)?.message));
+
+// Owners only ever sign in through Google. A returning owner is found by their Google id; an owner row
+// that predates Google sign-in is claimed once, by its (Google-verified) email.
+async function findOwner(d: Db, p: GoogleProfile): Promise<Session | null> {
+  const cols = `id, shop_id, role, workshop_id, name`;
+  type Row = { id: string; shop_id: string; role: "owner" | "workshop"; workshop_id: string | null; name: string };
+  let u = (await d.query<Row>(`SELECT ${cols} FROM users WHERE google_sub = $1`, [p.sub])).rows[0];
+  if (!u) {
+    u = (await d.query<Row>(`SELECT ${cols} FROM users WHERE role = 'owner' AND google_sub IS NULL AND email = $1`, [p.email.toLowerCase()])).rows[0];
+    if (u) await d.query(`UPDATE users SET google_sub = $1 WHERE id = $2 AND google_sub IS NULL`, [p.sub, u.id]);
+  }
+  return u ? { uid: u.id, shopId: u.shop_id, role: u.role, workshopId: u.workshop_id, name: u.name } : null;
+}
+
+export async function loginWithGoogle(p: GoogleProfile): Promise<Session | null> {
+  return findOwner(await db(), p);
+}
+
+// First sign-in with Google creates the shop and its owner. Signing up again with the same Google
+// account just signs in; it never creates a second shop.
+export async function signupWithGoogle(p: GoogleProfile, shopName: string, plan: string): Promise<Session> {
   const d = await db();
-  const email = input.email.trim().toLowerCase();
-  const exists = await d.query(`SELECT 1 FROM users WHERE email = $1`, [email]);
-  if (exists.rows.length) throw new BadRequest("An account with this email already exists.");
+  const existing = await findOwner(d, p);
+  if (existing) return existing;
+  const name = shopName.trim();
+  if (name.length < 2 || name.length > 80) throw new BadRequest("Please give your shop a name (2 to 80 characters).");
   const shopId = randomUUID();
-  await d.query(`INSERT INTO shops (id, name, plan) VALUES ($1,$2,$3)`, [shopId, input.shopName.trim(), input.plan]);
+  await d.query(`INSERT INTO shops (id, name, plan) VALUES ($1,$2,$3)`, [shopId, name, PLANS.includes(plan) ? plan : "trial"]);
   // sensible default workshops; the owner can rename or change them
   const defaults: [string, Capability[]][] = [
     ["Carpentry", ["carpentry"]],
@@ -81,21 +107,33 @@ export async function signup(input: { shopName: string; name: string; email: str
   for (const [n, caps] of defaults)
     await d.query(`INSERT INTO workshops (id, shop_id, name, capabilities) VALUES ($1,$2,$3,$4)`, [randomUUID(), shopId, n, caps]);
   const uid = randomUUID();
-  await d.query(
-    `INSERT INTO users (id, shop_id, email, name, password_hash, role) VALUES ($1,$2,$3,$4,$5,'owner')`,
-    [uid, shopId, email, input.name.trim(), await bcrypt.hash(input.password, 10)],
-  );
-  return { uid, shopId, role: "owner" as const, workshopId: null, name: input.name.trim() };
+  const display = p.name.trim() || p.email.split("@")[0];
+  try {
+    await d.query(`INSERT INTO users (id, shop_id, email, name, google_sub, role) VALUES ($1,$2,$3,$4,$5,'owner')`, [uid, shopId, p.email.toLowerCase(), display, p.sub]);
+  } catch (e) {
+    // two sign-ins from the same Google account raced: drop the shop we just made and use theirs
+    await d.query(`DELETE FROM shops WHERE id = $1`, [shopId]);
+    const raced = isUnique(e) ? await findOwner(d, p) : null;
+    if (raced) return raced;
+    if (isUnique(e)) throw new BadRequest("That email already belongs to another Werkbank account.");
+    throw e;
+  }
+  return { uid, shopId, role: "owner" as const, workshopId: null, name: display };
 }
 
-export async function login(email: string, password: string): Promise<Session | null> {
+// Workshop staff: username + password (owners have neither).
+let dummyHash: string | undefined;
+export async function login(username: string, password: string): Promise<Session | null> {
   const d = await db();
-  const r = await d.query<{ id: string; shop_id: string; role: "owner" | "workshop"; workshop_id: string | null; name: string; password_hash: string }>(
-    `SELECT id, shop_id, role, workshop_id, name, password_hash FROM users WHERE email = $1`,
-    [email.trim().toLowerCase()],
+  const r = await d.query<{ id: string; shop_id: string; role: "owner" | "workshop"; workshop_id: string | null; name: string; password_hash: string | null }>(
+    `SELECT id, shop_id, role, workshop_id, name, password_hash FROM users WHERE username = $1`,
+    [normalizeUsername(username)],
   );
   const u = r.rows[0];
-  if (!u || !(await bcrypt.compare(password, u.password_hash))) return null;
+  // compare against a dummy hash for unknown users so the response time does not reveal who exists
+  dummyHash ??= await bcrypt.hash("werkbank-dummy-password", 10);
+  const ok = await bcrypt.compare(password, u?.password_hash ?? dummyHash);
+  if (!u || !u.password_hash || !ok) return null;
   return { uid: u.id, shopId: u.shop_id, role: u.role, workshopId: u.workshop_id, name: u.name };
 }
 
@@ -150,25 +188,48 @@ export async function updateWorkshop(s: Session, id: string, name: string, capab
 
 export async function workshopUsers(s: Session) {
   ownerOnly(s);
-  const r = await (await db()).query<{ id: string; email: string; name: string; workshop_id: string }>(
-    `SELECT id, email, name, workshop_id FROM users WHERE shop_id = $1 AND role = 'workshop' ORDER BY name`,
+  const r = await (await db()).query<{ id: string; username: string | null; name: string; workshop_id: string }>(
+    `SELECT id, username, name, workshop_id FROM users WHERE shop_id = $1 AND role = 'workshop' ORDER BY name`,
     [s.shopId],
   );
   return r.rows;
 }
 
-export async function createWorkshopUser(s: Session, workshopId: string, name: string, email: string, password: string) {
+function checkPassword(password: string) {
+  if (password.length < 8) throw new BadRequest("Password must be at least 8 characters.");
+  if (password.length > 200) throw new BadRequest("Password is too long.");
+}
+
+export async function createWorkshopUser(s: Session, workshopId: string, name: string, username: string, password: string) {
   ownerOnly(s);
   const d = await db();
   const w = await d.query(`SELECT 1 FROM workshops WHERE id = $1 AND shop_id = $2`, [workshopId, s.shopId]);
   if (!w.rows.length) throw new NotFound();
-  if (password.length < 8) throw new BadRequest("Password must be at least 8 characters.");
-  const e = email.trim().toLowerCase();
-  if ((await d.query(`SELECT 1 FROM users WHERE email = $1`, [e])).rows.length) throw new BadRequest("Email already in use.");
-  await d.query(
-    `INSERT INTO users (id, shop_id, email, name, password_hash, role, workshop_id) VALUES ($1,$2,$3,$4,$5,'workshop',$6)`,
-    [randomUUID(), s.shopId, e, name.trim(), await bcrypt.hash(password, 10), workshopId],
+  if (!name.trim()) throw new BadRequest("Please enter a name.");
+  checkPassword(password);
+  const u = normalizeUsername(username);
+  if (!USERNAME_RULE.test(u)) throw new BadRequest("Username must be 3 to 40 characters: lowercase letters, numbers, dot, dash or underscore.");
+  const hash = await bcrypt.hash(password, 10);
+  try {
+    await d.query(
+      `INSERT INTO users (id, shop_id, username, name, password_hash, role, workshop_id) VALUES ($1,$2,$3,$4,$5,'workshop',$6)`,
+      [randomUUID(), s.shopId, u, name.trim(), hash, workshopId],
+    );
+  } catch (e) {
+    if (isUnique(e)) throw new BadRequest("That username is taken. Usernames are shared by every shop, so try adding your shop name.");
+    throw e;
+  }
+}
+
+// The owner sets a new password for one of their staff. There is no email reset: staff may not have an email.
+export async function resetWorkshopUserPassword(s: Session, userId: string, password: string) {
+  ownerOnly(s);
+  checkPassword(password);
+  const r = await (await db()).query(
+    `UPDATE users SET password_hash = $1 WHERE id = $2 AND shop_id = $3 AND role = 'workshop' RETURNING id`,
+    [await bcrypt.hash(password, 10), userId, s.shopId],
   );
+  if (!r.rows.length) throw new NotFound();
 }
 
 // ---------- classification ----------

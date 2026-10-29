@@ -104,8 +104,12 @@ hint is shown instead.
 - Every tenant table carries `shop_id`. All SQL lives in [`src/lib/repo.ts`](src/lib/repo.ts) and filters on the
   caller's shop. Workshop users are additionally pinned to their own `workshop_id`, whatever filter they send.
 - Owner-only operations (create order, reassign, reports, export, settings) are enforced server-side, not just hidden in the UI.
-- Sessions are HS256-signed JWTs in an httpOnly cookie. Passwords are hashed with bcrypt. In production, the app
-  refuses to start without `AUTH_SECRET`.
+- Shop owners sign in with Google (OpenID Connect, authorization code + PKCE, ID token checked for issuer, audience,
+  nonce and verified email). Workshop staff sign in with a globally unique username and a password that their owner
+  sets and can reset; there is no email reset. Sessions are HS256-signed JWTs in an httpOnly cookie, passwords are
+  hashed with bcrypt, and in production the app refuses to start without `AUTH_SECRET`. Known limits: no login
+  rate limiting, and a reset password does not end sessions that are already open (they expire after 14 days).
+  Setup: [`docs/google-auth-setup.md`](docs/google-auth-setup.md).
 - [`tests/tenancy.test.ts`](tests/tenancy.test.ts) checks these rules against a real (in-memory) Postgres.
 
 ## Stack
@@ -129,7 +133,9 @@ No database install is needed locally: PGlite runs Postgres in-process.
 1. Import the repo on Vercel.
 2. Add a Postgres database (*Storage → Neon*), which sets `DATABASE_URL`.
 3. Set `AUTH_SECRET` to a long random string (`openssl rand -base64 32`).
-4. Optional: `ANTHROPIC_API_KEY` for the LLM step, and `RESEND_API_KEY` + `MAIL_FROM` for "order done" emails.
+4. For owner sign-in, `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` (see [`docs/google-auth-setup.md`](docs/google-auth-setup.md)).
+   Without them the owner buttons are disabled; the demo and staff logins still work.
+5. Optional: `ANTHROPIC_API_KEY` for the LLM step, and `RESEND_API_KEY` + `MAIL_FROM` for "order done" emails.
 
 Without `DATABASE_URL`, the app still runs on Vercel with an in-memory database. That is fine for a quick look,
 but data resets and is not shared between server instances.

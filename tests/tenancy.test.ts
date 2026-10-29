@@ -14,7 +14,7 @@ import {
   orderEvents,
   reassign,
   report,
-  signup,
+  signupWithGoogle,
   splitOrder,
   unsplitOrder,
   updateProgress,
@@ -25,15 +25,15 @@ let ownerA: Session, ownerB: Session, upholsteryA: Session, metalA: Session;
 let orderId: string;
 
 beforeAll(async () => {
-  ownerA = await signup({ shopName: "Shop A", name: "Anna", email: "a@test.dev", password: "password-a", plan: "pro" });
-  ownerB = await signup({ shopName: "Shop B", name: "Ben", email: "b@test.dev", password: "password-b", plan: "starter" });
+  ownerA = await signupWithGoogle({ sub: "g-anna", email: "a@test.dev", name: "Anna" }, "Shop A", "pro");
+  ownerB = await signupWithGoogle({ sub: "g-ben", email: "b@test.dev", name: "Ben" }, "Shop B", "starter");
   const ws = await listWorkshops(ownerA);
   const up = ws.find((w) => w.capabilities.includes("upholstery"))!;
   const me = ws.find((w) => w.capabilities.includes("metal"))!;
-  await createWorkshopUser(ownerA, up.id, "Uli", "uli@test.dev", "password-u");
-  await createWorkshopUser(ownerA, me.id, "Mo", "mo@test.dev", "password-m");
-  upholsteryA = (await login("uli@test.dev", "password-u"))!;
-  metalA = (await login("mo@test.dev", "password-m"))!;
+  await createWorkshopUser(ownerA, up.id, "Uli", "uli.shopa", "password-u");
+  await createWorkshopUser(ownerA, me.id, "Mo", "mo.shopa", "password-m");
+  upholsteryA = (await login("uli.shopa", "password-u"))!;
+  metalA = (await login("mo.shopa", "password-m"))!;
   const o = await createOrder(ownerA, { customerName: "C1", item: "Sofa", description: "fabric torn, cushions sagging, new foam" });
   orderId = o.id;
   await createOrder(ownerA, { customerName: "C2", item: "Garden chair", description: "rusted frame and broken weld" });
@@ -41,10 +41,7 @@ beforeAll(async () => {
 
 describe("auth", () => {
   it("rejects a wrong password", async () => {
-    expect(await login("a@test.dev", "nope")).toBeNull();
-  });
-  it("rejects duplicate emails", async () => {
-    await expect(signup({ shopName: "X", name: "X", email: "A@test.dev", password: "password-x", plan: "trial" })).rejects.toThrow();
+    expect(await login("uli.shopa", "nope")).toBeNull();
   });
 });
 
@@ -115,8 +112,8 @@ describe("orders split across two workshops", () => {
     const ws = await listWorkshops(ownerA);
     const find = (cap: string) => ws.find((w) => w.capabilities.includes(cap as never))!.id;
     ids = { up: find("upholstery"), metal: find("metal"), carp: find("carpentry") };
-    await createWorkshopUser(ownerA, ids.carp, "Cal", "cal@test.dev", "password-c");
-    carpentryA = (await login("cal@test.dev", "password-c"))!;
+    await createWorkshopUser(ownerA, ids.carp, "Cal", "cal.shopa", "password-c");
+    carpentryA = (await login("cal.shopa", "password-c"))!;
     const o = await createOrder(ownerA, { customerName: "Split", item: "Armchair", description: "fabric torn, cushions sagging, new foam" });
     expect(o.workshop_id).toBe(ids.up);
     id = o.id;

@@ -11,13 +11,13 @@ export const DEMO = {
   shopId: "demo-shop",
   shopName: "Lindenholz Möbel (Demo)",
   ownerEmail: "demo@werkbank.app",
-  password: "demo1234",
+  password: "demo1234", // demo staff logins, e.g. jonas.lindenholz (the demo buttons need no password)
   workshops: [
-    { id: "demo-ws-carpentry", name: "Schreinerei (Carpentry)", caps: ["carpentry"], email: "schreinerei@werkbank.app", person: "Jonas" },
-    { id: "demo-ws-upholstery", name: "Polsterei (Upholstery)", caps: ["upholstery"], email: "polsterei@werkbank.app", person: "Leyla" },
-    { id: "demo-ws-finishing", name: "Lackiererei (Polish & Paint)", caps: ["finishing"], email: "lack@werkbank.app", person: "Marek" },
-    { id: "demo-ws-metal", name: "Metallbau (Metalwork)", caps: ["metal"], email: "metall@werkbank.app", person: "Sven" },
-  ] as { id: string; name: string; caps: Capability[]; email: string; person: string }[],
+    { id: "demo-ws-carpentry", name: "Schreinerei (Carpentry)", caps: ["carpentry"], username: "jonas.lindenholz", person: "Jonas" },
+    { id: "demo-ws-upholstery", name: "Polsterei (Upholstery)", caps: ["upholstery"], username: "leyla.lindenholz", person: "Leyla" },
+    { id: "demo-ws-finishing", name: "Lackiererei (Polish & Paint)", caps: ["finishing"], username: "marek.lindenholz", person: "Marek" },
+    { id: "demo-ws-metal", name: "Metallbau (Metalwork)", caps: ["metal"], username: "sven.lindenholz", person: "Sven" },
+  ] as { id: string; name: string; caps: Capability[]; username: string; person: string }[],
 };
 
 const CUSTOMERS = [
@@ -68,9 +68,10 @@ export async function seedDemo(d: Db) {
   if (!claimed.rows.length) return;
   const hash = await bcrypt.hash(DEMO.password, 10);
   await insertRows(d, "workshops", ["id", "shop_id", "name", "capabilities"], DEMO.workshops.map((w) => [w.id, DEMO.shopId, w.name, w.caps]));
-  await insertRows(d, "users", ["id", "shop_id", "email", "name", "password_hash", "role", "workshop_id"], [
-    ["demo-owner", DEMO.shopId, DEMO.ownerEmail, "Demo owner", hash, "owner", null],
-    ...DEMO.workshops.map((w) => [`demo-user-${w.id}`, DEMO.shopId, w.email, w.person, hash, "workshop", w.id]),
+  // the demo owner has no password and no Google account: it is only reachable through the demo buttons
+  await insertRows(d, "users", ["id", "shop_id", "email", "username", "name", "password_hash", "role", "workshop_id"], [
+    ["demo-owner", DEMO.shopId, DEMO.ownerEmail, null, "Demo owner", null, "owner", null],
+    ...DEMO.workshops.map((w) => [`demo-user-${w.id}`, DEMO.shopId, null, w.username, w.person, hash, "workshop", w.id]),
   ]);
 
   const now = Date.now();

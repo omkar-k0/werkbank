@@ -30,7 +30,23 @@ export async function readToken(token: string | undefined): Promise<Session | nu
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, secret());
+    if (payload.aud) return null; // short-lived sign-in tokens (below) are never sessions
     return payload as unknown as Session;
+  } catch {
+    return null;
+  }
+}
+
+// Short-lived signed values for the Google sign-in round trip. They carry an audience so they can
+// never be mistaken for a session token.
+export async function signFlow(payload: Record<string, unknown>, ttl = "10m"): Promise<string> {
+  return new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).setAudience("google-flow").setIssuedAt().setExpirationTime(ttl).sign(secret());
+}
+
+export async function readFlow<T>(token: string | undefined): Promise<T | null> {
+  if (!token) return null;
+  try {
+    return (await jwtVerify(token, secret(), { audience: "google-flow" })).payload as unknown as T;
   } catch {
     return null;
   }
