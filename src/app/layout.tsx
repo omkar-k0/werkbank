@@ -1,14 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { LocaleProvider } from "@/components/I18n";
+import { getT } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: { default: "Werkbank — order routing for furniture workshops", template: "%s · Werkbank" },
-  description:
-    "Werkbank reads each repair or custom order, sends it to the right workshop, and tells you how sure it is. Built for furniture shops with their own workshops.",
-  manifest: "/manifest.webmanifest",
-  icons: { icon: "/icon.svg", apple: "/icon-192.png" },
-  appleWebApp: { capable: true, title: "Werkbank", statusBarStyle: "default" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getT();
+  return {
+    title: { default: t("meta.title"), template: "%s · Werkbank" },
+    description: t("meta.description"),
+    manifest: "/manifest.webmanifest",
+    icons: { icon: "/icon.svg", apple: "/icon-192.png" },
+    appleWebApp: { capable: true, title: "Werkbank", statusBarStyle: "default" },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -17,11 +21,12 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { locale } = await getT();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className="min-h-dvh">
-        {children}
+        <LocaleProvider locale={locale}>{children}</LocaleProvider>
         <script
           dangerouslySetInnerHTML={{
             __html: `if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}))}`,

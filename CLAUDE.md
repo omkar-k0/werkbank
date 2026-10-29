@@ -29,6 +29,11 @@ that went quiet. Never put the client's name in the repo or on the site. The dem
 - Gate thresholds were fixed a priori (0.85 / margin 0.5 / check 0.55), and shops pick a strictness
   level. Do not tune thresholds or the lexicon against the test sets: that is leakage.
 - UI never shows more than "99%+" confidence.
+- i18n (EN/DE, `src/lib/i18n/`): `messages.ts` holds both dictionaries (German must have every key; a test checks
+  keys and {placeholders}). Language = `wb_lang` cookie, else Accept-Language, else English. Server pages use
+  `await getT()`, client components `useT()`. Routing reasons and history lines are stored in English in the DB and
+  translated at render by `dynamic.ts` (pattern match; tests run the real generators through it, so editing an English
+  template without updating `dynamic.ts` fails a test). Not translated: CSV export, API error messages, user data.
 
 ## Evaluation (honest numbers only)
 `npm run model` regenerates data, retrains and writes `reports/eval.md`. Training data is synthetic.
@@ -37,7 +42,7 @@ v1: hand-written auto-routed 40% at 95.8% accuracy; after 100 corrections, 82.5%
 Job-type accuracy about 70% (weak). Never quote the 400-correction row.
 
 ## Commands
-`npm run dev` · `npm test` (23 tests: classifier + tenant isolation) · `npm run build` · `npm run model`
+`npm run dev` · `npm test` (33 tests: classifier, tenant isolation, i18n) · `npm run build` · `npm run model`
 
 ## Open item from v1
 Check whether `werkbank-live-fix.patch` was applied (README live URL + `export const maxDuration = 60`

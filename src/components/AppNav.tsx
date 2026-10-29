@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useT } from "./I18n";
 
 export function NavLink({ href, children, badge }: { href: string; children: React.ReactNode; badge?: number }) {
   const path = usePathname();
@@ -31,6 +32,7 @@ export function AutoRefresh({ ms = 8000 }: { ms?: number }) {
 }
 
 export function LogoutButton() {
+  const t = useT();
   return (
     <button
       className="text-sm text-muted underline"
@@ -39,7 +41,7 @@ export function LogoutButton() {
         window.location.href = "/";
       }}
     >
-      Sign out
+      {t("nav.signOut")}
     </button>
   );
 }

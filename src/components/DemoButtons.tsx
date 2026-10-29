@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
+import { useT } from "./I18n";
 
 export function DemoButton({ as, label, className = "btn" }: { as?: string; label: string; className?: string }) {
+  const t = useT();
   const [busy, setBusy] = useState(false);
   return (
     <button
@@ -13,7 +15,7 @@ export function DemoButton({ as, label, className = "btn" }: { as?: string; labe
         window.location.href = "/app";
       }}
     >
-      {busy ? "Opening…" : label}
+      {busy ? t("common.opening") : label}
     </button>
   );
 }
