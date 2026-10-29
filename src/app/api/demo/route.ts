@@ -3,6 +3,8 @@ import { COOKIE, cookieOptions, signSession } from "@/lib/auth";
 import { getDb } from "@/lib/db";
 import { DEMO } from "@/lib/seed";
 
+export const maxDuration = 60;
+
 // One-click demo login. ?as=<workshop id> signs in as that workshop instead of the owner.
 export async function POST(req: Request) {
   await getDb(); // make sure the demo shop is seeded

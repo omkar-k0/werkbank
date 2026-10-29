@@ -6,7 +6,7 @@ workshop (carpentry, upholstery, polish and paint, metalwork), labels it with a 
 reports how confident it is. Requests it is not sure about wait in a review queue instead of going to the wrong
 bench. Every correction the owner makes retrains that shop's model.
 
-Live demo: **https://werkbank.vercel.app**. Click *Open the demo shop*; no sign-up needed. The demo shop is fictional.
+Live demo: **https://werkbank-gamma.vercel.app**. Click *Open the demo shop*; no sign-up needed. The demo shop is fictional.
 
 ![Board](docs/screenshots/board.png)
 
