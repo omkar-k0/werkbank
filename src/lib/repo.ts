@@ -184,7 +184,7 @@ async function shopModels(d: Db, shopId: string, strictness: Strictness): Promis
   return { ...models, thresholds: STRICTNESS[strictness] ?? STRICTNESS.balanced };
 }
 
-function orderText(item: string, description: string) {
+export function orderText(item: string, description: string) {
   return `${item}. ${description}`;
 }
 
@@ -213,6 +213,14 @@ export interface NewOrder {
   createdAt?: Date; // seeding only
   status?: Status; // seeding only
   skipLlm?: boolean; // seeding only
+}
+
+// The "routed" line shown in an order's history.
+export function describeRouting(routing: Classification["routing"], workshopName?: string): string {
+  const conf = routing.confidence >= 0.995 ? "99%+" : `${Math.round(routing.confidence * 100)}%`;
+  return routing.gate === "review"
+    ? `Sent to review queue (${conf} confidence)`
+    : `Routed to ${workshopName} by ${routing.source} (${conf} confidence${routing.gate === "check" ? ", flagged for a check" : ""})`;
 }
 
 // dIn is only passed by the demo seeder, which runs while the
@@ -262,11 +270,7 @@ export async function createOrder(s: Session, input: NewOrder, dIn?: Db): Promis
       throw e;
     }
   }
-  const conf = routing.confidence >= 0.995 ? "99%+" : `${Math.round(routing.confidence * 100)}%`;
-  const how =
-    routing.gate === "review"
-      ? `Sent to review queue (${conf} confidence)`
-      : `Routed to ${ws?.name} by ${routing.source} (${conf} confidence${routing.gate === "check" ? ", flagged for a check" : ""})`;
+  const how = describeRouting(routing, ws?.name);
   await event(d, id, s.shopId, "system", "routed", how, now);
   return (await getOrder(s, id, d))!;
 }

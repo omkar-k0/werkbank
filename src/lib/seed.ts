@@ -1,9 +1,9 @@
 import bcrypt from "bcryptjs";
+import { randomUUID } from "node:crypto";
 import handwritten from "../../data/handwritten.json";
 import type { Db } from "./db";
-import type { Session } from "./auth";
-import { createOrder } from "./repo";
-import type { Capability } from "./classifier";
+import { describeRouting, orderText, STRICTNESS } from "./repo";
+import { buildShopModels, classify, type Capability, type Correction } from "./classifier";
 
 // A fictional demo shop so the live site can be explored without signing up.
 // Nothing here refers to a real business or person.
@@ -41,6 +41,15 @@ function itemOf(text: string): string {
 let r = 7;
 const rnd = () => ((r = (r * 48271) % 2147483647) / 2147483647);
 
+// One multi-row INSERT. Neon charges a network round trip per query, so the
+// seed builds everything in memory and writes each table in a single statement.
+async function insertRows(d: Db, table: string, cols: string[], rows: unknown[][]) {
+  if (!rows.length) return;
+  const params: unknown[] = [];
+  const values = rows.map((row) => `(${row.map((v) => (params.push(v), `$${params.length}`)).join(",")})`);
+  await d.query(`INSERT INTO ${table} (${cols.join(", ")}) VALUES ${values.join(", ")}`, params);
+}
+
 export async function seedDemo(d: Db) {
   // ON CONFLICT makes this safe when two server instances cold-start at once.
   const claimed = await d.query(
@@ -49,68 +58,83 @@ export async function seedDemo(d: Db) {
   );
   if (!claimed.rows.length) return;
   const hash = await bcrypt.hash(DEMO.password, 10);
-  await d.query(
-    `INSERT INTO users (id, shop_id, email, name, password_hash, role) VALUES ('demo-owner',$1,$2,'Demo owner',$3,'owner')`,
-    [DEMO.shopId, DEMO.ownerEmail, hash],
-  );
-  for (const w of DEMO.workshops) {
-    await d.query(`INSERT INTO workshops (id, shop_id, name, capabilities) VALUES ($1,$2,$3,$4)`, [w.id, DEMO.shopId, w.name, w.caps]);
-    await d.query(
-      `INSERT INTO users (id, shop_id, email, name, password_hash, role, workshop_id) VALUES ($1,$2,$3,$4,$5,'workshop',$6)`,
-      [`demo-user-${w.id}`, DEMO.shopId, w.email, w.person, hash, w.id],
-    );
-  }
+  await insertRows(d, "workshops", ["id", "shop_id", "name", "capabilities"], DEMO.workshops.map((w) => [w.id, DEMO.shopId, w.name, w.caps]));
+  await insertRows(d, "users", ["id", "shop_id", "email", "name", "password_hash", "role", "workshop_id"], [
+    ["demo-owner", DEMO.shopId, DEMO.ownerEmail, "Demo owner", hash, "owner", null],
+    ...DEMO.workshops.map((w) => [`demo-user-${w.id}`, DEMO.shopId, w.email, w.person, hash, "workshop", w.id]),
+  ]);
 
-  const owner: Session = { uid: "demo-owner", shopId: DEMO.shopId, role: "owner", workshopId: null, name: "Demo owner" };
   const now = Date.now();
+  const available = [...new Set(DEMO.workshops.flatMap((w) => w.caps))];
   const rows = handwritten as { text: string; capability: Capability; jobType: string }[];
+  const orderRows: unknown[][] = [];
+  const eventRows: unknown[][] = [];
+  const correctionRows: unknown[][] = [];
+  const corrections: Correction[] = [];
+  let models = buildShopModels(corrections);
+  const event = (orderId: string, actor: string, kind: string, detail: string, at: Date) =>
+    eventRows.push([orderId, DEMO.shopId, actor, kind, detail, at]);
+
   for (let i = 0; i < rows.length; i++) {
     const ageDays = Math.floor((1 - i / rows.length) * 55) + 1; // oldest first
     const createdAt = new Date(now - ageDays * 86_400_000 - Math.floor(rnd() * 8) * 3_600_000);
     const due = new Date(createdAt.getTime() + (5 + Math.floor(rnd() * 20)) * 86_400_000);
-    const order = await createOrder(
-      owner,
-      {
-        customerName: CUSTOMERS[i % CUSTOMERS.length],
-        customerPhone: `+49 201 ${String(4000000 + Math.floor(rnd() * 999999))}`,
-        item: itemOf(rows[i].text),
-        description: rows[i].text,
-        dueDate: due.toISOString().slice(0, 10),
-        createdAt,
-        skipLlm: true,
-      },
-      d,
-    );
+    const dueDate = due.toISOString().slice(0, 10);
+    const phone = `+49 201 ${String(4000000 + Math.floor(rnd() * 999999))}`;
+    const item = itemOf(rows[i].text);
+    const description = rows[i].text.trim();
+    const text = orderText(item, description);
+    // Same classification path as createOrder (no LLM), against the corrections made so far.
+    const c = classify(text, { ...models, thresholds: STRICTNESS.balanced }, { available, dueDate: due, now: createdAt });
+    const routing = c.routing;
+    const routed = routing.capability ? DEMO.workshops.find((w) => w.caps.includes(routing.capability!)) ?? null : null;
+    const id = randomUUID();
+    event(id, "system", "routed", describeRouting(routing, routed?.name), createdAt);
+
+    const o = {
+      workshopId: routed?.id ?? null,
+      capability: routing.capability,
+      gate: routing.gate as string,
+      source: routing.source as string,
+      status: "not_started",
+      expected: null as string | null,
+      completedAt: null as Date | null,
+      updatedAt: createdAt,
+    };
     const truth = DEMO.workshops.find((w) => w.caps.includes(rows[i].capability))!;
     // Simulate the owner's past work: older review items and wrong routes
     // were fixed by hand, which also became corrections for the model.
-    const needsFix = !order.workshop_id || order.workshop_id !== truth.id;
+    const needsFix = !o.workshopId || o.workshopId !== truth.id;
     if (needsFix && ageDays > 12) {
-      await d.query(`UPDATE orders SET workshop_id = $1, capability = $2, source = 'manual', gate = 'auto' WHERE id = $3`, [truth.id, rows[i].capability, order.id]);
-      await d.query(
-        `INSERT INTO corrections (shop_id, order_id, text, from_capability, to_capability, job_type, at) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
-        [DEMO.shopId, order.id, `${order.item}. ${order.description}`, order.capability, rows[i].capability, rows[i].jobType, createdAt],
-      );
-      await d.query(`INSERT INTO order_events (order_id, shop_id, actor, kind, detail, at) VALUES ($1,$2,'Demo owner','assigned',$3,$4)`, [
-        order.id, DEMO.shopId, `${order.workshop_id ? "Moved" : "Assigned"} to ${truth.name} (the model learns from this)`, new Date(createdAt.getTime() + 3_600_000),
-      ]);
-      order.workshop_id = truth.id;
+      correctionRows.push([DEMO.shopId, id, text, o.capability, rows[i].capability, rows[i].jobType, createdAt]);
+      corrections.push({ text, capability: rows[i].capability, jobType: rows[i].jobType as Correction["jobType"] });
+      models = buildShopModels(corrections);
+      event(id, "Demo owner", "assigned", `${o.workshopId ? "Moved" : "Assigned"} to ${truth.name} (the model learns from this)`, new Date(createdAt.getTime() + 3_600_000));
+      Object.assign(o, { workshopId: truth.id, capability: rows[i].capability, source: "manual", gate: "auto" });
     }
-    if (!order.workshop_id) continue; // stays in the review queue
-    // older orders are further along
-    const roll = rnd();
-    const status = ageDays > 30 ? (roll < 0.85 ? "done" : "in_progress") : ageDays > 10 ? (roll < 0.45 ? "done" : roll < 0.8 ? "in_progress" : "not_started") : roll < 0.3 ? "in_progress" : "not_started";
-    if (status !== "not_started") {
-      const doneAt = new Date(createdAt.getTime() + (2 + Math.floor(rnd() * 12)) * 86_400_000);
-      await d.query(
-        `UPDATE orders SET status = $1, completed_at = $2, expected_date = $3, updated_at = $4 WHERE id = $5`,
-        [status, status === "done" ? doneAt : null, due.toISOString().slice(0, 10), status === "done" ? doneAt : createdAt, order.id],
-      );
-      const ws = DEMO.workshops.find((w) => w.id === order.workshop_id)!;
-      await d.query(`INSERT INTO order_events (order_id, shop_id, actor, kind, detail, at) VALUES ($1,$2,$3,'status',$4,$5)`, [
-        order.id, DEMO.shopId, ws.person, status === "done" ? "Status set to done" : "Status set to in progress",
-        status === "done" ? doneAt : new Date(createdAt.getTime() + 86_400_000),
-      ]);
+    if (o.workshopId) {
+      // older orders are further along
+      const roll = rnd();
+      const status = ageDays > 30 ? (roll < 0.85 ? "done" : "in_progress") : ageDays > 10 ? (roll < 0.45 ? "done" : roll < 0.8 ? "in_progress" : "not_started") : roll < 0.3 ? "in_progress" : "not_started";
+      if (status !== "not_started") {
+        const doneAt = new Date(createdAt.getTime() + (2 + Math.floor(rnd() * 12)) * 86_400_000);
+        Object.assign(o, { status, expected: dueDate, completedAt: status === "done" ? doneAt : null, updatedAt: status === "done" ? doneAt : createdAt });
+        const person = DEMO.workshops.find((w) => w.id === o.workshopId)!.person;
+        event(id, person, "status", status === "done" ? "Status set to done" : "Status set to in progress", status === "done" ? doneAt : new Date(createdAt.getTime() + 86_400_000));
+      }
     }
+    orderRows.push([
+      id, DEMO.shopId, 1001 + i, CUSTOMERS[i % CUSTOMERS.length], phone, item, description, dueDate, o.expected, o.status, o.workshopId,
+      o.capability, routing.secondary, o.gate, routing.confidence, o.source, routing.reason, JSON.stringify(routing.evidence),
+      JSON.stringify(routing.probabilities), null, c.labels.jobType, c.labels.urgency, c.labels.effort, JSON.stringify(c.labels),
+      createdAt, o.updatedAt, o.completedAt,
+    ]);
   }
+  await insertRows(d, "orders", [
+    "id", "shop_id", "number", "customer_name", "customer_phone", "item", "description", "due_date", "expected_date", "status", "workshop_id",
+    "capability", "secondary", "gate", "confidence", "source", "reason", "evidence", "probabilities", "llm_quote", "job_type", "urgency", "effort", "labels",
+    "created_at", "updated_at", "completed_at",
+  ], orderRows);
+  await insertRows(d, "order_events", ["order_id", "shop_id", "actor", "kind", "detail", "at"], eventRows);
+  await insertRows(d, "corrections", ["shop_id", "order_id", "text", "from_capability", "to_capability", "job_type", "at"], correctionRows);
 }
