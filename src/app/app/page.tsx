@@ -5,7 +5,7 @@ import { fmtDate, isOverdue } from "@/components/ui";
 import { requireSession } from "@/lib/auth";
 import type { Locale, TFn } from "@/lib/i18n";
 import { getT, titleOf } from "@/lib/i18n/server";
-import { listOrders, listWorkshops, type OrderFilter, type OrderRow } from "@/lib/repo";
+import { involves, listOrders, listWorkshops, type OrderFilter, type OrderRow } from "@/lib/repo";
 
 export const generateMetadata = () => titleOf("board.title");
 
@@ -58,7 +58,7 @@ async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: stri
         <Link href={qs({ ws: undefined })} className={`rounded-full border px-3 py-1 text-sm ${!sp.ws ? "border-walnut bg-walnut text-walnut-ink" : "border-line hover:bg-sawdust"}`}>{t("board.allWorkshops")}</Link>
         {workshops.map((w) => (
           <Link key={w.id} href={qs({ ws: w.id })} className={`rounded-full border px-3 py-1 text-sm ${sp.ws === w.id ? "border-walnut bg-walnut text-walnut-ink" : "border-line hover:bg-sawdust"}`}>
-            {w.name} <span className="opacity-70">{open.filter((o) => o.workshop_id === w.id).length}</span>
+            {w.name} <span className="opacity-70">{open.filter((o) => involves(o, w.id)).length}</span>
           </Link>
         ))}
         <span className="mx-1 hidden h-5 w-px bg-line sm:block" />
@@ -92,7 +92,7 @@ function Row({ o, t, locale }: { o: OrderRow; t: TFn; locale: Locale }) {
         <span className="font-medium">{o.item}</span> <UrgencyTag urgency={o.urgency} />
         <span className="block truncate text-sm text-muted">{o.customer_name} · {o.description}</span>
       </span>
-      <span className="text-sm">{o.workshop_name ?? <span className="font-semibold text-rust">{t("common.unassigned")}</span>}</span>
+      <span className="text-sm">{o.parts.length ? o.parts.map((p) => p.workshop_name).join(" + ") : (o.workshop_name ?? <span className="font-semibold text-rust">{t("common.unassigned")}</span>)}</span>
       <span><GateBadge gate={o.gate} source={o.source} /></span>
       <span><StatusPill status={o.status} /></span>
       <span className={`text-sm ${overdue ? "font-semibold text-rust" : "text-muted"}`}>{overdue ? t("board.overduePrefix") : ""}{fmtDate(o.expected_date ?? o.due_date, locale)}</span>
@@ -124,6 +124,9 @@ async function WorkshopBoard() {
                       <UrgencyTag urgency={o.urgency} />
                     </div>
                     <p className="mt-1 text-sm">{o.description}</p>
+                    {o.parts.length > 0 && (
+                      <p className="mt-1 text-xs font-semibold text-walnut">{t("order.sharedWith", { ws: o.parts.filter((p) => p.workshop_id !== s.workshopId).map((p) => p.workshop_name).join(", ") })}</p>
+                    )}
                     <p className="mt-1 text-xs text-muted">
                       {t("ws.meta", { customer: o.customer_name, job: labels.job(o.job_type), effort: o.effort, due: fmtDate(o.due_date, locale) })}
                       {isOverdue(o) && <span className="font-semibold text-rust">{t("ws.overdue")}</span>}

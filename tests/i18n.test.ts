@@ -95,6 +95,11 @@ describe("stored text is translated", () => {
       "Moved to Lackiererei (Polish & Paint) (the model learns from this)",
       "Assigned to Schreinerei (Carpentry)",
       "Email sent to demo@werkbank.app",
+      "Split: part sent to Polsterei (Upholstery)",
+      "Split removed: Metallbau (Metalwork) no longer works on this order",
+      "Polsterei (Upholstery): status set to in progress",
+      "Polsterei (Upholstery): expected completion set to 2026-11-03",
+      "Polsterei (Upholstery): expected completion cleared",
     ];
     for (const l of lines) {
       const out = localizeEvent("de", l);
@@ -108,6 +113,8 @@ describe("stored text is translated", () => {
     expect(localizeEvent("de", describeRouting({ ...auto, gate: "check", confidence: 0.7 }, "Polsterei"))).toBe(
       "An Polsterei zugewiesen per rules+model (70% Sicherheit, zur Kontrolle markiert)",
     );
+    expect(localizeEvent("de", "Split: part sent to Polsterei (Upholstery)")).toBe("Aufgeteilt: Teil an Polsterei (Upholstery) geschickt");
+    expect(localizeEvent("de", "Polsterei (Upholstery): status set to done")).toBe("Polsterei (Upholstery): Status gesetzt auf Erledigt");
     expect(localizeEvent("de", "Something else")).toBe("Something else");
   });
 });

@@ -65,6 +65,11 @@ const EVENTS: [MsgKey, Record<string, string>][] = [
   ["event.status", { status: "(?:not started|in progress|done)" }],
   ["event.dateSet", { date: "\\d{4}-\\d{2}-\\d{2}" }],
   ["event.dateCleared", {}],
+  ["event.split", {}],
+  ["event.unsplit", {}],
+  ["event.partStatus", { status: "(?:not started|in progress|done)" }],
+  ["event.partDateSet", { date: "\\d{4}-\\d{2}-\\d{2}" }],
+  ["event.partDateCleared", {}],
   ["event.emailed", {}],
 ];
 

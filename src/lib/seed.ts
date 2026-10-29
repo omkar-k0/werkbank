@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { randomUUID } from "node:crypto";
 import handwritten from "../../data/handwritten.json";
 import type { Db } from "./db";
-import { describeRouting, orderText, STRICTNESS } from "./repo";
+import { describeRouting, orderText, overallStatus, STRICTNESS, type Status } from "./repo";
 import { buildShopModels, classify, type Capability, type Correction } from "./classifier";
 
 // A fictional demo shop so the live site can be explored without signing up.
@@ -30,6 +30,15 @@ const ITEMS = [
   "bookshelf", "cabinet", "sideboard", "chair", "stool", "bench", "headboard", "ottoman", "chest", "shoe rack",
   "plant stand", "swing", "shelf set", "floating shelf", "cot", "console table", "tv unit", "window seat", "Sofa", "Schrank", "Tisch", "Stuhl", "Kopfteil",
 ];
+
+// A few demo orders that need two trades. Keyed by order number so the other orders
+// (and the random sequence below) are unaffected.
+const SPLITS: Record<number, { workshop: string; note: string; status: Status }> = {
+  1009: { workshop: "demo-ws-carpentry", note: "Check the joints and glue the loose rail before refinishing", status: "done" },
+  1031: { workshop: "demo-ws-finishing", note: "Re-polish the veneer once the edges are glued down", status: "not_started" },
+  1035: { workshop: "demo-ws-finishing", note: "Seal and repaint the doors after they dry out", status: "not_started" },
+  1049: { workshop: "demo-ws-metal", note: "Rails and brackets for the sliding doors", status: "in_progress" },
+};
 
 function itemOf(text: string): string {
   const t = text.toLowerCase();
@@ -70,6 +79,7 @@ export async function seedDemo(d: Db) {
   const orderRows: unknown[][] = [];
   const eventRows: unknown[][] = [];
   const correctionRows: unknown[][] = [];
+  const partRows: unknown[][] = [];
   const corrections: Correction[] = [];
   let models = buildShopModels(corrections);
   const event = (orderId: string, actor: string, kind: string, detail: string, at: Date) =>
@@ -123,6 +133,20 @@ export async function seedDemo(d: Db) {
         event(id, person, "status", status === "done" ? "Status set to done" : "Status set to in progress", status === "done" ? doneAt : new Date(createdAt.getTime() + 86_400_000));
       }
     }
+    const split = SPLITS[1001 + i];
+    if (split && o.workshopId) {
+      const second = DEMO.workshops.find((w) => w.id === split.workshop)!;
+      const first = DEMO.workshops.find((w) => w.id === o.workshopId)!;
+      const secondDone = split.status === "done" ? new Date(createdAt.getTime() + 9 * 86_400_000) : null;
+      partRows.push([randomUUID(), id, DEMO.shopId, first.id, true, o.capability, null, o.status, o.expected, o.completedAt, createdAt]);
+      partRows.push([randomUUID(), id, DEMO.shopId, second.id, false, second.caps[0], split.note, split.status, split.status === "not_started" ? null : dueDate, secondDone, createdAt]);
+      event(id, "Demo owner", "split", `Split: part sent to ${second.name}`, new Date(createdAt.getTime() + 2 * 3_600_000));
+      if (split.status !== "not_started")
+        event(id, second.person, "status", `${second.name}: status set to ${split.status.replace("_", " ")}`, secondDone ?? new Date(createdAt.getTime() + 2 * 86_400_000));
+      const overall = overallStatus([o.status as Status, split.status]);
+      const doneAt = overall === "done" ? new Date(Math.max(o.completedAt?.getTime() ?? 0, secondDone?.getTime() ?? 0)) : null;
+      Object.assign(o, { status: overall, expected: dueDate, completedAt: doneAt, updatedAt: doneAt ?? o.updatedAt });
+    }
     orderRows.push([
       id, DEMO.shopId, 1001 + i, CUSTOMERS[i % CUSTOMERS.length], phone, item, description, dueDate, o.expected, o.status, o.workshopId,
       o.capability, routing.secondary, o.gate, routing.confidence, o.source, routing.reason, JSON.stringify(routing.evidence),
@@ -135,6 +159,7 @@ export async function seedDemo(d: Db) {
     "capability", "secondary", "gate", "confidence", "source", "reason", "evidence", "probabilities", "llm_quote", "job_type", "urgency", "effort", "labels",
     "created_at", "updated_at", "completed_at",
   ], orderRows);
+  await insertRows(d, "order_parts", ["id", "order_id", "shop_id", "workshop_id", "is_primary", "capability", "note", "status", "expected_date", "completed_at", "created_at"], partRows);
   await insertRows(d, "order_events", ["order_id", "shop_id", "actor", "kind", "detail", "at"], eventRows);
   await insertRows(d, "corrections", ["shop_id", "order_id", "text", "from_capability", "to_capability", "job_type", "at"], correctionRows);
 }

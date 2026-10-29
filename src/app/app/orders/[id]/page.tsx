@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AssignSelect, ExpectedDate, JobTypeSelect, StatusButtons } from "@/components/OrderActions";
+import { AssignSelect, ExpectedDate, JobTypeSelect, SplitPicker, StatusButtons, UnsplitButton } from "@/components/OrderActions";
 import { GateBadge, ProbabilityBars, StatusPill, UrgencyTag } from "@/components/badges";
 import { fmtDate, isOverdue, pctLabel } from "@/components/ui";
 import { requireSession } from "@/lib/auth";
@@ -47,7 +47,7 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
               <div><dt className="text-muted">{t("order.jobType")}</dt><dd>{s.role === "owner" ? <JobTypeSelect id={o.id} value={o.job_type} workshopId={o.workshop_id} /> : <span className="font-medium capitalize">{job(o.job_type)}</span>}</dd></div>
               <div><dt className="text-muted">{t("order.effort")}</dt><dd className="font-medium">{o.effort}</dd></div>
               <div><dt className="text-muted">{t("order.urgency")}</dt><dd className="font-medium capitalize">{urgency(o.urgency)}</dd></div>
-              <div><dt className="text-muted">{t("order.workshop")}</dt><dd className="font-medium">{o.workshop_name ?? t("common.unassigned")}</dd></div>
+              <div><dt className="text-muted">{t("order.workshop")}</dt><dd className="font-medium">{o.parts.length ? o.parts.map((p) => p.workshop_name).join(" + ") : (o.workshop_name ?? t("common.unassigned"))}</dd></div>
             </dl>
             {!!labels.urgencyCues?.length && <p className="mt-3 text-xs text-muted">{t("order.urgentBecause", { cues: labels.urgencyCues.join(", ") })}</p>}
           </section>
@@ -55,8 +55,24 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
           {o.workshop_id && (
             <section className="card space-y-3 p-6">
               <h2 className="text-lg font-semibold">{t("order.progress")}</h2>
-              <StatusButtons id={o.id} status={o.status} />
-              <ExpectedDate id={o.id} value={o.expected_date} />
+              {o.parts.length ? (
+                <>
+                  {s.role === "workshop" && <p className="text-sm text-muted">{t("order.sharedWith", { ws: o.parts.filter((p) => p.workshop_id !== s.workshopId).map((p) => p.workshop_name).join(", ") })}</p>}
+                  {o.parts.filter((p) => s.role === "owner" || p.workshop_id === s.workshopId).map((p) => (
+                    <div key={p.id} className="space-y-2 border-t border-line pt-3 first:border-0 first:pt-0">
+                      <div className="flex items-center gap-2"><span className="font-semibold">{p.workshop_name}</span><StatusPill status={p.status} /></div>
+                      {p.note && <p className="text-sm text-muted">{p.note}</p>}
+                      <StatusButtons id={o.id} status={p.status} workshopId={s.role === "owner" ? p.workshop_id : undefined} />
+                      <ExpectedDate id={o.id} value={p.expected_date} workshopId={s.role === "owner" ? p.workshop_id : undefined} />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <StatusButtons id={o.id} status={o.status} />
+                  <ExpectedDate id={o.id} value={o.expected_date} />
+                </>
+              )}
             </section>
           )}
 
@@ -65,6 +81,18 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
               <h2 className="text-lg font-semibold">{o.workshop_id ? t("order.moveTitle") : t("order.assignTitle")}</h2>
               <p className="mb-3 text-sm text-muted">{t("order.moveHint")}</p>
               <AssignSelect id={o.id} current={o.workshop_id} workshops={workshops} suggested={suggested} />
+            </section>
+          )}
+
+          {s.role === "owner" && o.workshop_id && (
+            <section className="card p-6">
+              <h2 className="text-lg font-semibold">{t("order.splitH")}</h2>
+              <p className="mb-3 text-sm text-muted">{t("order.splitHint")}</p>
+              {o.parts.length ? (
+                <UnsplitButton id={o.id} name={o.parts.find((p) => !p.is_primary)!.workshop_name} />
+              ) : (
+                <SplitPicker id={o.id} workshops={workshops.filter((w) => w.id !== o.workshop_id)} suggested={workshops.find((w) => w.id !== o.workshop_id && o.secondary && w.capabilities.includes(o.secondary))?.id} />
+              )}
             </section>
           )}
         </div>

@@ -35,6 +35,10 @@ export const STATUSES: Status[] = ["not_started", "in_progress", "done"];
 
 export interface Shop { id: string; name: string; plan: string; strictness: Strictness; is_demo: boolean }
 export interface Workshop { id: string; shop_id: string; name: string; capabilities: Capability[] }
+export interface OrderPart {
+  id: string; order_id: string; workshop_id: string; workshop_name: string; is_primary: boolean;
+  capability: Capability | null; note: string | null; status: Status; expected_date: string | null; completed_at: string | null;
+}
 export interface OrderRow {
   id: string; shop_id: string; number: number; customer_name: string; customer_phone: string | null;
   item: string; description: string; due_date: string | null; expected_date: string | null; status: Status;
@@ -43,6 +47,9 @@ export interface OrderRow {
   evidence: { token: string; capability: Capability; weight: number }[]; probabilities: Record<Capability, number>;
   llm_quote: string | null; job_type: JobType; urgency: string; effort: string; labels: Record<string, unknown>;
   created_at: string; updated_at: string; completed_at: string | null;
+  // empty unless the order is split across two workshops (see splitOrder). For a workshop user on a
+  // split order, status / expected_date / completed_at above are that workshop's own part.
+  parts: OrderPart[];
 }
 
 const db = getDb;
@@ -290,7 +297,55 @@ async function event(d: Db, orderId: string, shopId: string, actor: string, kind
   await d.query(`INSERT INTO order_events (order_id, shop_id, actor, kind, detail, at) VALUES ($1,$2,$3,$4,$5,$6)`, [orderId, shopId, actor, kind, detail, at]);
 }
 
-const ORDER_SELECT = `SELECT o.*, w.name AS workshop_name FROM orders o LEFT JOIN workshops w ON w.id = o.workshop_id`;
+export const involves = (o: Pick<OrderRow, "workshop_id" | "parts">, workshopId: string) =>
+  o.workshop_id === workshopId || o.parts.some((p) => p.workshop_id === workshopId);
+
+// Loads the parts of the given orders (one query) and, for a workshop user, swaps the order's
+// progress fields for that workshop's own part.
+async function attachParts(d: Db, s: Session, rows: OrderRow[]): Promise<OrderRow[]> {
+  for (const o of rows) o.parts = [];
+  const split = rows.filter((o) => (o as { split?: boolean }).split);
+  if (split.length) {
+    const r = await d.query<OrderPart>(
+      `SELECT p.id, p.order_id, p.workshop_id, w.name AS workshop_name, p.is_primary, p.capability, p.note, p.status, p.expected_date, p.completed_at
+       FROM order_parts p JOIN workshops w ON w.id = p.workshop_id
+       WHERE p.shop_id = $1 AND p.order_id = ANY($2) ORDER BY p.is_primary DESC, p.created_at`,
+      [s.shopId, split.map((o) => o.id)],
+    );
+    const byOrder = new Map<string, OrderPart[]>();
+    for (const p of r.rows) {
+      fixDates(p);
+      byOrder.set(p.order_id, [...(byOrder.get(p.order_id) ?? []), p]);
+    }
+    for (const o of split) o.parts = byOrder.get(o.id) ?? [];
+  }
+  for (const o of rows) {
+    delete (o as { split?: boolean }).split;
+    const mine = s.role === "workshop" ? o.parts.find((p) => p.workshop_id === s.workshopId) : undefined;
+    if (mine) Object.assign(o, { status: mine.status, expected_date: mine.expected_date, completed_at: mine.completed_at });
+  }
+  return rows;
+}
+
+// Overall progress of a split order: done only when every part is.
+export const overallStatus = (statuses: Status[]): Status =>
+  statuses.every((s) => s === "done") ? "done" : statuses.every((s) => s === "not_started") ? "not_started" : "in_progress";
+
+async function syncOverall(d: Db, orderId: string, shopId: string): Promise<Status> {
+  const r = await d.query<{ status: Status; expected_date: unknown; completed_at: Date | null }>(
+    `SELECT status, expected_date, completed_at FROM order_parts WHERE order_id = $1 AND shop_id = $2`,
+    [orderId, shopId],
+  );
+  const parts = r.rows;
+  const status = overallStatus(parts.map((p) => p.status));
+  const dates = parts.map((p) => ymd(p.expected_date)).filter(Boolean) as string[];
+  const expected = dates.length ? dates.sort().at(-1)! : null;
+  const doneAt = status === "done" ? new Date(Math.max(...parts.map((p) => new Date(p.completed_at ?? Date.now()).getTime()))) : null;
+  await d.query(`UPDATE orders SET status = $1, expected_date = $2, completed_at = $3, updated_at = now() WHERE id = $4 AND shop_id = $5`, [status, expected, doneAt, orderId, shopId]);
+  return status;
+}
+
+const ORDER_SELECT = `SELECT o.*, w.name AS workshop_name, EXISTS (SELECT 1 FROM order_parts p WHERE p.order_id = o.id) AS split FROM orders o LEFT JOIN workshops w ON w.id = o.workshop_id`;
 
 export interface OrderFilter {
   status?: Status | "open" | "all";
@@ -304,10 +359,12 @@ export async function listOrders(s: Session, f: OrderFilter = {}): Promise<Order
   const params: unknown[] = [s.shopId];
   const add = (sql: string, v: unknown) => {
     params.push(v);
-    where.push(sql.replace("?", `$${params.length}`));
+    where.push(sql.replaceAll("?", `$${params.length}`));
   };
-  if (s.role === "workshop") add("o.workshop_id = ?", s.workshopId ?? "__none__");
-  else if (f.workshopId) add("o.workshop_id = ?", f.workshopId);
+  // a workshop is involved through the order's main workshop or through its part of a split order
+  const involved = (wsId: string) => add("(o.workshop_id = ? OR EXISTS (SELECT 1 FROM order_parts p WHERE p.order_id = o.id AND p.workshop_id = ?))", wsId);
+  if (s.role === "workshop") involved(s.workshopId ?? "__none__");
+  else if (f.workshopId) involved(f.workshopId);
   if (f.status === "open") where.push("o.status <> 'done'");
   else if (f.status && f.status !== "all") add("o.status = ?", f.status);
   if (f.gate === "review") where.push("o.workshop_id IS NULL");
@@ -322,15 +379,16 @@ export async function listOrders(s: Session, f: OrderFilter = {}): Promise<Order
      ORDER BY (o.status = 'done'), (o.urgency = 'high') DESC, o.due_date NULLS LAST, o.created_at DESC LIMIT 500`,
     params,
   );
-  return r.rows.map(fixDates);
+  return attachParts(await db(), s, r.rows.map(fixDates));
 }
 
 export async function getOrder(s: Session, id: string, dIn?: Db): Promise<OrderRow | null> {
   const r = await (dIn ?? (await db())).query<OrderRow>(`${ORDER_SELECT} WHERE o.id = $1 AND o.shop_id = $2`, [id, s.shopId]);
   const o = r.rows[0];
   if (!o) return null;
-  if (s.role === "workshop" && o.workshop_id !== s.workshopId) return null;
-  return fixDates(o);
+  const [withParts] = await attachParts(dIn ?? (await db()), s, [fixDates(o)]);
+  if (s.role === "workshop" && !involves(withParts, s.workshopId ?? "__none__")) return null;
+  return withParts;
 }
 
 export async function orderEvents(s: Session, id: string) {
@@ -342,13 +400,36 @@ export async function orderEvents(s: Session, id: string) {
   return r.rows.map(fixDates);
 }
 
-export async function updateProgress(s: Session, id: string, patch: { status?: Status; expectedDate?: string | null }) {
+// For a split order, `workshopId` names the part (owners must say which; a workshop user's own part is implied).
+export async function updateProgress(s: Session, id: string, patch: { status?: Status; expectedDate?: string | null; workshopId?: string }) {
   const o = await getOrder(s, id);
   if (!o) throw new NotFound();
   if (!o.workshop_id) throw new BadRequest("Assign this order to a workshop first.");
   const d = await db();
+  if (patch.status && !STATUSES.includes(patch.status)) throw new BadRequest("Unknown status");
+
+  if (o.parts.length) {
+    const wsId = s.role === "workshop" ? s.workshopId : patch.workshopId;
+    const part = o.parts.find((p) => p.workshop_id === wsId);
+    if (!part) throw new BadRequest("This order is split: say which workshop's part to update.");
+    const prev = (await d.query<{ status: Status }>(`SELECT status FROM orders WHERE id = $1 AND shop_id = $2`, [id, s.shopId])).rows[0].status;
+    if (patch.status && patch.status !== part.status) {
+      await d.query(
+        `UPDATE order_parts SET status = $1, completed_at = CASE WHEN $1 = 'done' THEN now() ELSE NULL END WHERE id = $2 AND shop_id = $3`,
+        [patch.status, part.id, s.shopId],
+      );
+      await event(d, id, s.shopId, s.name, "status", `${part.workshop_name}: status set to ${patch.status.replace("_", " ")}`);
+    }
+    if (patch.expectedDate !== undefined && patch.expectedDate !== part.expected_date) {
+      await d.query(`UPDATE order_parts SET expected_date = $1 WHERE id = $2 AND shop_id = $3`, [patch.expectedDate || null, part.id, s.shopId]);
+      await event(d, id, s.shopId, s.name, "date", `${part.workshop_name}: ${patch.expectedDate ? `expected completion set to ${patch.expectedDate}` : "expected completion cleared"}`);
+    }
+    // the order is finished when its last part is, so the owner is told once
+    if ((await syncOverall(d, id, s.shopId)) === "done" && prev !== "done") await notifyDone(s, o);
+    return;
+  }
+
   if (patch.status && patch.status !== o.status) {
-    if (!STATUSES.includes(patch.status)) throw new BadRequest("Unknown status");
     await d.query(
       `UPDATE orders SET status = $1, updated_at = now(), completed_at = CASE WHEN $1 = 'done' THEN now() ELSE NULL END WHERE id = $2 AND shop_id = $3`,
       [patch.status, id, s.shopId],
@@ -371,12 +452,15 @@ export async function reassign(s: Session, id: string, workshopId: string, jobTy
   const ws = (await listWorkshops(s)).find((w) => w.id === workshopId);
   if (!ws) throw new NotFound();
   if (ws.id === o.workshop_id && !jobType) return;
+  if (ws.id !== o.workshop_id && o.parts.some((p) => p.workshop_id === ws.id))
+    throw new BadRequest("That workshop already has a part of this order.");
   const d = await db();
   const cap: Capability = o.capability && ws.capabilities.includes(o.capability) ? o.capability : ws.capabilities[0];
   await d.query(
     `UPDATE orders SET workshop_id = $1, capability = $2, source = 'manual', gate = 'auto', job_type = COALESCE($3, job_type), updated_at = now() WHERE id = $4 AND shop_id = $5`,
     [ws.id, cap, jobType ?? null, id, s.shopId],
   );
+  if (o.parts.length) await d.query(`UPDATE order_parts SET workshop_id = $1, capability = $2 WHERE order_id = $3 AND shop_id = $4 AND is_primary`, [ws.id, cap, id, s.shopId]);
   const wasWrong = o.capability !== cap || !o.workshop_id;
   if (wasWrong || jobType) {
     await d.query(
@@ -385,6 +469,50 @@ export async function reassign(s: Session, id: string, workshopId: string, jobTy
     );
   }
   await event(d, id, s.shopId, s.name, "assigned", `${o.workshop_id ? "Moved" : "Assigned"} to ${ws.name}${wasWrong ? " (the model learns from this)" : ""}`);
+}
+
+// Splits one order across two workshops that work in parallel, each with its own progress.
+// This is a planning decision, not a routing mistake, so it is not stored as a correction.
+export async function splitOrder(s: Session, id: string, workshopId: string, note?: string) {
+  ownerOnly(s);
+  const o = await getOrder(s, id);
+  if (!o) throw new NotFound();
+  if (!o.workshop_id) throw new BadRequest("Assign this order to a workshop before splitting it.");
+  if (o.parts.length) throw new BadRequest("This order is already split across two workshops.");
+  if (workshopId === o.workshop_id) throw new BadRequest("Pick a different workshop for the second part.");
+  const ws = (await listWorkshops(s)).find((w) => w.id === workshopId);
+  if (!ws) throw new NotFound();
+  const text = note?.trim().slice(0, 300) || null;
+  const cap: Capability = o.secondary && ws.capabilities.includes(o.secondary) ? o.secondary : ws.capabilities[0];
+  const d = await db();
+  await d.query(
+    `INSERT INTO order_parts (id, order_id, shop_id, workshop_id, is_primary, capability, status, expected_date, completed_at)
+     VALUES ($1,$2,$3,$4,TRUE,$5,$6,$7,$8)`,
+    [randomUUID(), id, s.shopId, o.workshop_id, o.capability, o.status, o.expected_date, o.completed_at],
+  );
+  await d.query(
+    `INSERT INTO order_parts (id, order_id, shop_id, workshop_id, is_primary, capability, note) VALUES ($1,$2,$3,$4,FALSE,$5,$6)`,
+    [randomUUID(), id, s.shopId, ws.id, cap, text],
+  );
+  await syncOverall(d, id, s.shopId);
+  await event(d, id, s.shopId, s.name, "split", `Split: part sent to ${ws.name}`);
+}
+
+// Takes the second workshop off the order again; the order goes back to the main workshop's progress.
+export async function unsplitOrder(s: Session, id: string) {
+  ownerOnly(s);
+  const o = await getOrder(s, id);
+  if (!o) throw new NotFound();
+  const main = o.parts.find((p) => p.is_primary);
+  const other = o.parts.find((p) => !p.is_primary);
+  if (!main || !other) throw new BadRequest("This order is not split.");
+  const d = await db();
+  await d.query(
+    `UPDATE orders SET status = $1, expected_date = $2, completed_at = $3, updated_at = now() WHERE id = $4 AND shop_id = $5`,
+    [main.status, main.expected_date, main.completed_at, id, s.shopId],
+  );
+  await d.query(`DELETE FROM order_parts WHERE order_id = $1 AND shop_id = $2`, [id, s.shopId]);
+  await event(d, id, s.shopId, s.name, "split", `Split removed: ${other.workshop_name} no longer works on this order`);
 }
 
 async function notifyDone(s: Session, o: OrderRow) {
@@ -402,7 +530,7 @@ async function notifyDone(s: Session, o: OrderRow) {
         from: process.env.MAIL_FROM || "Werkbank <onboarding@resend.dev>",
         to: owner.rows[0].email,
         subject: `Order #${o.number} is done`,
-        text: `${o.workshop_name} finished order #${o.number} for ${o.customer_name}: ${o.item}.`,
+        text: `${o.parts.length ? o.parts.map((p) => p.workshop_name).join(" and ") : o.workshop_name} finished order #${o.number} for ${o.customer_name}: ${o.item}.`,
       }),
       signal: AbortSignal.timeout(5000),
     });
@@ -419,12 +547,20 @@ export async function report(s: Session) {
   const d = await db();
   const id = s.shopId;
   const perWorkshop = await d.query<{ name: string; open: number; overdue: number; done: number; avg_days: number | null }>(
-    `SELECT w.name,
+    // one work item per order, or per part for a split order, so each workshop is counted for its own share
+    `WITH items AS (
+       SELECT o.id, o.workshop_id, o.status, o.expected_date, o.due_date, o.completed_at, o.created_at
+       FROM orders o WHERE o.shop_id = $1 AND NOT EXISTS (SELECT 1 FROM order_parts p WHERE p.order_id = o.id)
+       UNION ALL
+       SELECT o.id, p.workshop_id, p.status, p.expected_date, o.due_date, p.completed_at, o.created_at
+       FROM order_parts p JOIN orders o ON o.id = p.order_id WHERE p.shop_id = $1
+     )
+     SELECT w.name,
        COUNT(o.id) FILTER (WHERE o.status <> 'done')::int AS open,
        COUNT(o.id) FILTER (WHERE o.status <> 'done' AND COALESCE(o.expected_date, o.due_date) < CURRENT_DATE)::int AS overdue,
        COUNT(o.id) FILTER (WHERE o.status = 'done')::int AS done,
        ROUND(AVG(EXTRACT(EPOCH FROM (o.completed_at - o.created_at)) / 86400) FILTER (WHERE o.status = 'done')::numeric, 1)::float AS avg_days
-     FROM workshops w LEFT JOIN orders o ON o.workshop_id = w.id
+     FROM workshops w LEFT JOIN items o ON o.workshop_id = w.id
      WHERE w.shop_id = $1 GROUP BY w.id, w.name, w.created_at ORDER BY w.created_at`,
     [id],
   );
@@ -459,7 +595,7 @@ export async function exportCsv(s: Session): Promise<string> {
     return /[",\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
   };
   const lines = rows.map((o) =>
-    [o.number, o.created_at.slice(0, 10), o.customer_name, o.customer_phone, o.item, o.description, o.workshop_name ?? "REVIEW", o.status, o.job_type, o.urgency, o.effort, o.due_date, o.expected_date, o.confidence.toFixed(2), o.source]
+    [o.number, o.created_at.slice(0, 10), o.customer_name, o.customer_phone, o.item, o.description, o.parts.length ? o.parts.map((p) => p.workshop_name).join(" + ") : (o.workshop_name ?? "REVIEW"), o.status, o.job_type, o.urgency, o.effort, o.due_date, o.expected_date, o.confidence.toFixed(2), o.source]
       .map(esc)
       .join(","),
   );

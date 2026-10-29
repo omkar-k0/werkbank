@@ -24,7 +24,7 @@ function alertSoft(msg: string) {
   setTimeout(() => el.remove(), 3500);
 }
 
-export function StatusButtons({ id, status, compact = false }: { id: string; status: string; compact?: boolean }) {
+export function StatusButtons({ id, status, compact = false, workshopId }: { id: string; status: string; compact?: boolean; workshopId?: string }) {
   const t = useT();
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -37,7 +37,7 @@ export function StatusButtons({ id, status, compact = false }: { id: string; sta
           className={i === 0 ? "btn" : `btn btn-ghost ${compact ? "hidden sm:inline-flex" : ""}`}
           onClick={async () => {
             setBusy(true);
-            await call(`/api/orders/${id}`, "PATCH", { status: to }, t("common.couldNotSave"));
+            await call(`/api/orders/${id}`, "PATCH", { status: to, workshopId }, t("common.couldNotSave"));
             setBusy(false);
             router.refresh();
           }}
@@ -49,7 +49,7 @@ export function StatusButtons({ id, status, compact = false }: { id: string; sta
   );
 }
 
-export function ExpectedDate({ id, value }: { id: string; value: string | null }) {
+export function ExpectedDate({ id, value, workshopId }: { id: string; value: string | null; workshopId?: string }) {
   const t = useT();
   const router = useRouter();
   return (
@@ -60,7 +60,7 @@ export function ExpectedDate({ id, value }: { id: string; value: string | null }
         className="input w-auto py-1"
         defaultValue={value ?? ""}
         onChange={async (e) => {
-          await call(`/api/orders/${id}`, "PATCH", { expectedDate: e.target.value || null }, t("common.couldNotSave"));
+          await call(`/api/orders/${id}`, "PATCH", { expectedDate: e.target.value || null, workshopId }, t("common.couldNotSave"));
           router.refresh();
         }}
       />
@@ -122,5 +122,56 @@ export function JobTypeSelect({ id, value, workshopId }: { id: string; value: st
         <option key={j} value={j}>{L.job(j)}</option>
       ))}
     </select>
+  );
+}
+
+// Owner: send a second part of the order to another workshop.
+export function SplitPicker({ id, workshops, suggested }: { id: string; workshops: { id: string; name: string }[]; suggested?: string | null }) {
+  const t = useT();
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState("");
+  return (
+    <div className="space-y-3">
+      <input className="input" value={note} maxLength={300} placeholder={t("order.splitNotePh")} onChange={(e) => setNote(e.target.value)} />
+      <div className="flex flex-wrap gap-2">
+        {workshops.map((w) => (
+          <button
+            key={w.id}
+            disabled={busy}
+            className={`btn ${w.id === suggested ? "" : "btn-ghost"}`}
+            onClick={async () => {
+              setBusy(true);
+              await call(`/api/orders/${id}/split`, "POST", { workshopId: w.id, note }, t("common.couldNotSave"));
+              setBusy(false);
+              router.refresh();
+            }}
+          >
+            {t("order.splitSend", { ws: w.name })}
+            {w.id === suggested ? t("act.suggested") : ""}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function UnsplitButton({ id, name }: { id: string; name: string }) {
+  const t = useT();
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  return (
+    <button
+      className="btn btn-ghost"
+      disabled={busy}
+      onClick={async () => {
+        setBusy(true);
+        await call(`/api/orders/${id}/split`, "DELETE", undefined, t("common.couldNotSave"));
+        setBusy(false);
+        router.refresh();
+      }}
+    >
+      {t("order.splitRemove", { ws: name })}
+    </button>
   );
 }

@@ -12,7 +12,7 @@ export const GET = withSession<Ctx>(async (s, _req, { params }) => {
 
 export const PATCH = withSession<Ctx>(async (s, req, { params }) => {
   const { id } = await params;
-  const b = await body<{ status?: Status; expectedDate?: string | null }>(req);
+  const b = await body<{ status?: Status; expectedDate?: string | null; workshopId?: string }>(req);
   await updateProgress(s, id, b);
   return { order: await getOrder(s, id) };
 });

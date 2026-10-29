@@ -58,6 +58,23 @@ export const SCHEMA = [
   )`,
   `CREATE INDEX IF NOT EXISTS orders_shop_idx ON orders (shop_id, created_at DESC)`,
   `CREATE INDEX IF NOT EXISTS orders_ws_idx ON orders (shop_id, workshop_id)`,
+  // Only orders split across two workshops have rows here. Each part carries its own
+  // progress; orders.status / expected_date / completed_at then hold the overall result.
+  `CREATE TABLE IF NOT EXISTS order_parts (
+    id TEXT PRIMARY KEY,
+    order_id TEXT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    shop_id TEXT NOT NULL REFERENCES shops(id) ON DELETE CASCADE,
+    workshop_id TEXT NOT NULL REFERENCES workshops(id) ON DELETE CASCADE,
+    is_primary BOOLEAN NOT NULL DEFAULT FALSE,
+    capability TEXT,
+    note TEXT,
+    status TEXT NOT NULL DEFAULT 'not_started' CHECK (status IN ('not_started','in_progress','done')),
+    expected_date DATE,
+    completed_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (order_id, workshop_id)
+  )`,
+  `CREATE INDEX IF NOT EXISTS order_parts_ws_idx ON order_parts (shop_id, workshop_id)`,
   `CREATE TABLE IF NOT EXISTS order_events (
     id SERIAL PRIMARY KEY,
     order_id TEXT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,

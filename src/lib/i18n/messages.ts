@@ -230,6 +230,12 @@ export const en = {
   "order.confidence": "Model confidence at intake: {pct}",
   "order.alsoInvolves": "Also involves {cap}.",
   "order.history": "History",
+  "order.splitH": "Split between two workshops",
+  "order.splitHint": "Both workshops work in parallel and each tracks its own part. The order is done when both parts are.",
+  "order.splitNotePh": "What should this workshop do? (optional)",
+  "order.splitSend": "Send a part to {ws}",
+  "order.splitRemove": "Remove {ws} from this order",
+  "order.sharedWith": "Shared with {ws}",
 
   // review queue
   "review.title": "Review queue",
@@ -340,6 +346,11 @@ export const en = {
   "event.learns": " (the model learns from this)",
   "event.emailed": "Email sent to {email}",
   "event.actorSystem": "system",
+  "event.split": "Split: part sent to {ws}",
+  "event.unsplit": "Split removed: {ws} no longer works on this order",
+  "event.partStatus": "{ws}: status set to {status}",
+  "event.partDateSet": "{ws}: expected completion set to {date}",
+  "event.partDateCleared": "{ws}: expected completion cleared",
 } as const;
 
 export type MsgKey = keyof typeof en;
@@ -562,6 +573,12 @@ export const de: Record<MsgKey, string> = {
   "order.confidence": "Sicherheit des Modells bei Eingang: {pct}",
   "order.alsoInvolves": "Betrifft auch {cap}.",
   "order.history": "Verlauf",
+  "order.splitH": "Auf zwei Werkstätten aufteilen",
+  "order.splitHint": "Beide Werkstätten arbeiten parallel und verfolgen ihren Teil getrennt. Der Auftrag ist erledigt, wenn beide Teile erledigt sind.",
+  "order.splitNotePh": "Was soll diese Werkstatt tun? (optional)",
+  "order.splitSend": "Teil an {ws} schicken",
+  "order.splitRemove": "{ws} von diesem Auftrag abziehen",
+  "order.sharedWith": "Gemeinsam mit {ws}",
 
   "review.title": "Prüfliste",
   "review.lead": "Aufträge, bei denen sich das System nicht sicher genug war. Jeder, den du zuweist, wird zu einem Trainingsbeispiel für deinen Betrieb.",
@@ -665,4 +682,9 @@ export const de: Record<MsgKey, string> = {
   "event.learns": " (das Modell lernt daraus)",
   "event.emailed": "E-Mail gesendet an {email}",
   "event.actorSystem": "System",
+  "event.split": "Aufgeteilt: Teil an {ws} geschickt",
+  "event.unsplit": "Aufteilung entfernt: {ws} arbeitet nicht mehr an diesem Auftrag",
+  "event.partStatus": "{ws}: Status gesetzt auf {status}",
+  "event.partDateSet": "{ws}: voraussichtliche Fertigstellung gesetzt auf {date}",
+  "event.partDateCleared": "{ws}: voraussichtliche Fertigstellung gelöscht",
 };

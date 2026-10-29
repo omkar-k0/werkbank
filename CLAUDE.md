@@ -29,6 +29,11 @@ that went quiet. Never put the client's name in the repo or on the site. The dem
 - Gate thresholds were fixed a priori (0.85 / margin 0.5 / check 0.55), and shops pick a strictness
   level. Do not tune thresholds or the lexicon against the test sets: that is leakage.
 - UI never shows more than "99%+" confidence.
+- Split orders: an order has no `order_parts` rows until the owner splits it across two workshops (max two, in
+  parallel, each part has its own status / expected date / note). Then `orders.status`, `expected_date` and
+  `completed_at` hold the derived overall result (done only when both parts are). A workshop user's `getOrder` /
+  `listOrders` rows show their own part's progress. Splitting is a planning decision, so it is not a correction
+  for the model. Reports count each workshop per part.
 - i18n (EN/DE, `src/lib/i18n/`): `messages.ts` holds both dictionaries (German must have every key; a test checks
   keys and {placeholders}). Language = `wb_lang` cookie, else Accept-Language, else English. Server pages use
   `await getT()`, client components `useT()`. Routing reasons and history lines are stored in English in the DB and
@@ -42,12 +47,20 @@ v1: hand-written auto-routed 40% at 95.8% accuracy; after 100 corrections, 82.5%
 Job-type accuracy about 70% (weak). Never quote the 400-correction row.
 
 ## Commands
-`npm run dev` · `npm test` (33 tests: classifier, tenant isolation, i18n) · `npm run build` · `npm run model`
+`npm run dev` · `npm test` (41 tests: classifier, tenant isolation, split orders, i18n) · `npm run build` · `npm run model`
 
 ## Open item from v1
 Check whether `werkbank-live-fix.patch` was applied (README live URL + `export const maxDuration = 60`
 in `src/app/api/demo/route.ts` and `src/app/api/demo/reset/route.ts`). If not, make those edits.
 Demo reset takes about 45 s on Neon: seeding does about 600 sequential queries.
+
+## v2 progress
+Done on branch claude/serene-turing-tz3f80: item 7 (batched seed, Next 16, Vitest 5, 0 audit findings),
+item 5 (German UI), item 2 (split orders). The live demo shop is already seeded, so the four split demo orders
+only appear after "Reset demo data" in Settings. The new `order_parts` table is created automatically on first
+connection (`CREATE TABLE IF NOT EXISTS`), no manual migration.
+German classification is weaker than English (lexicon is mostly English): 3 of my first 5 German example
+sentences went to review. Do not fix by tuning the lexicon against test data; see item 6.
 
 ## v2 candidates (ask Omkar which ones before building)
 1. Stripe test-mode billing: monthly plans (Starter €29, Pro €59) and lifetime licence (€790)
