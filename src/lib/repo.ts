@@ -601,6 +601,20 @@ async function notifyDone(s: Session, o: OrderRow) {
   }
 }
 
+// ---------- first-run guidance ----------
+
+// What a brand-new owner still has to do, so the board can show a short checklist.
+export async function onboardingStatus(s: Session) {
+  ownerOnly(s);
+  const d = await db();
+  const n = async (sql: string) => Number((await d.query<{ n: number }>(sql, [s.shopId])).rows[0].n);
+  const [orders, staff] = await Promise.all([
+    n(`SELECT COUNT(*)::int AS n FROM orders WHERE shop_id = $1`),
+    n(`SELECT COUNT(*)::int AS n FROM users WHERE shop_id = $1 AND role = 'workshop'`),
+  ]);
+  return { orders, staff };
+}
+
 // ---------- reports ----------
 
 export async function report(s: Session) {

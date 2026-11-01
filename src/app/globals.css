@@ -73,6 +73,8 @@ h1, h2, h3, .display {
   font-weight: 500 !important;
 }
 
+dialog::backdrop { background: color-mix(in oklab, var(--ink) 38%, transparent); backdrop-filter: blur(2px); }
+
 /* small grey label above a value */
 .eyebrow { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 
@@ -98,6 +100,7 @@ h1, h2, h3, .display {
 }
 .btn:hover { filter: brightness(1.08); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:focus-visible { outline: 2px solid color-mix(in oklab, var(--walnut) 45%, transparent); outline-offset: 2px; }
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .btn-ghost:hover { background: var(--sawdust); filter: none; }
 

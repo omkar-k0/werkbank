@@ -5,7 +5,8 @@ import { fmtDate, isOverdue } from "@/components/ui";
 import { requireSession } from "@/lib/auth";
 import type { Locale, TFn } from "@/lib/i18n";
 import { getT, titleOf } from "@/lib/i18n/server";
-import { involves, listOrders, listWorkshops, type OrderFilter, type OrderRow } from "@/lib/repo";
+import { TourButton } from "@/components/Tour";
+import { getShop, involves, listOrders, listWorkshops, onboardingStatus, type OrderFilter, type OrderRow } from "@/lib/repo";
 
 export const generateMetadata = () => titleOf("board.title");
 
@@ -24,11 +25,16 @@ async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: stri
   const s = await requireSession();
   const { t, locale } = await getT();
   const status = (["open", "done", "all"].includes(sp.status ?? "") ? sp.status : "open") as OrderFilter["status"];
-  const [orders, all, workshops] = await Promise.all([
+  const [orders, all, workshops, ob, shop] = await Promise.all([
     listOrders(s, { status, workshopId: sp.ws, q: sp.q }),
     listOrders(s, { status: "all" }),
     listWorkshops(s),
+    onboardingStatus(s),
+    getShop(s),
   ]);
+  // a brand-new shop gets guidance instead of an empty table (the demo shop never needs it)
+  const firstRun = !shop.is_demo && ob.orders === 0;
+  const setupLeft = !shop.is_demo && (ob.orders === 0 || ob.staff === 0);
   const open = all.filter((o) => o.status !== "done");
   const weekAgo = daysAgoIso(7);
   const kpis = [
@@ -61,6 +67,9 @@ async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: stri
         ))}
       </dl>
 
+      {setupLeft && <GetStarted t={t} ob={ob} big={firstRun} />}
+
+      {!firstRun && <>
       <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2">
         <div className="inline-flex rounded-lg bg-sawdust p-0.5 text-sm">
           {(["open", "done", "all"] as const).map((st) => (
@@ -92,7 +101,41 @@ async function OwnerBoard({ sp }: { sp: { ws?: string; status?: string; q?: stri
         </div>
         {orders.length > 0 && <div className="border-t border-line px-5 py-2.5 text-xs text-muted">{t("board.count", { n: orders.length })}</div>}
       </div>
+      </>}
     </div>
+  );
+}
+
+// Two real steps that tick themselves off, plus one tip on how the model learns.
+function GetStarted({ t, ob, big }: { t: TFn; ob: { orders: number; staff: number }; big: boolean }) {
+  const steps = [
+    { done: ob.orders > 0, title: t("getstarted.s1.t"), text: t("getstarted.s1.d"), href: "/app/new", action: t("nav.newOrder") },
+    { done: ob.staff > 0, title: t("getstarted.s2.t"), text: t("getstarted.s2.d"), href: "/app/workshops", action: t("nav.workshops") },
+  ];
+  return (
+    <section className="card mt-8 p-7 lg:p-9">
+      <p className="eyebrow">{t("getstarted.eyebrow")}</p>
+      <h2 className="mt-2 text-3xl">{big ? t("getstarted.emptyH") : t("getstarted.moreH")}</h2>
+      {big && <p className="mt-2 max-w-xl text-muted">{t("getstarted.emptyP")}</p>}
+      <ol className="mt-6 divide-y divide-line border-y border-line">
+        {steps.map((st, n) => (
+          <li key={st.href} className="flex items-start gap-4 py-4">
+            <span className={`mt-0.5 flex size-6 flex-none items-center justify-center rounded-full border text-xs ${st.done ? "border-moss bg-moss-bg text-moss" : "border-line text-muted"}`}>
+              {st.done ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="m5 12 5 5 9-10" /></svg> : n + 1}
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className={`font-medium ${st.done ? "text-muted line-through decoration-line" : ""}`}>{st.title}</div>
+              <p className="text-sm text-muted">{st.text}</p>
+            </div>
+            {st.done ? <span className="text-sm text-muted">{t("getstarted.done")}</span> : <Link href={st.href} className="btn-text whitespace-nowrap">{st.action} →</Link>}
+          </li>
+        ))}
+      </ol>
+      <div className="mt-5 flex flex-wrap items-start justify-between gap-3">
+        <p className="max-w-xl text-sm text-muted"><span className="font-medium text-ink">{t("getstarted.tip.t")}.</span> {t("getstarted.tip.d")}</p>
+        <TourButton className="whitespace-nowrap underline" />
+      </div>
+    </section>
   );
 }
 
@@ -132,7 +175,9 @@ async function WorkshopBoard({ tab }: { tab?: string }) {
       <h1 className="text-4xl">{t("ws.title")}</h1>
       <p className="mt-1 text-sm text-muted">{t("ws.lead")}</p>
 
-      <nav className="mt-6 flex rounded-lg bg-sawdust p-0.5 text-sm lg:hidden" aria-label={t("ws.title")}>
+      {orders.length === 0 && <p className="card mt-6 p-6 text-muted">{t("ws.empty")}</p>}
+
+      <nav className={`mt-6 rounded-lg bg-sawdust p-0.5 text-sm lg:hidden ${orders.length === 0 ? "hidden" : "flex"}`} aria-label={t("ws.title")}>
         {TABS.map((st) => (
           <Link key={st} href={`/app?tab=${st}`} replace className={`flex-1 rounded-md px-3 py-2.5 text-center ${active === st ? "bg-card font-medium shadow-[0_0_0_1px_var(--line)]" : "text-muted"}`}>
             {names[st]} <span className="text-muted">{count(st)}</span>
@@ -140,7 +185,7 @@ async function WorkshopBoard({ tab }: { tab?: string }) {
         ))}
       </nav>
 
-      <div className="mt-6 grid gap-8 lg:grid-cols-3">
+      <div className={`mt-6 grid gap-8 lg:grid-cols-3 ${orders.length === 0 ? "hidden" : ""}`}>
         {TABS.map((st) => {
           const list = orders.filter((o) => o.status === st).slice(0, st === "done" ? 8 : 100);
           return (

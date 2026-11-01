@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AutoRefresh, LogoutButton, NavLink } from "@/components/AppNav";
 import { LangSwitch } from "@/components/I18n";
+import { TourButton, TourDialog } from "@/components/Tour";
 import { Logo } from "@/components/ui";
 import { requireSession } from "@/lib/auth";
 import { usingEphemeralDb } from "@/lib/db";
@@ -18,6 +19,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[15rem_1fr]">
       <AutoRefresh />
+      <TourDialog role={s.role} />
       <aside className="border-b border-line bg-card lg:min-h-dvh lg:border-r lg:border-b-0">
         <div className="flex items-center justify-between px-4 py-4 lg:block">
           <Link href="/app"><Logo className="text-walnut" /></Link>
@@ -36,7 +38,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <NavLink href="/app/settings" icon="settings">{t("nav.settings")}</NavLink>
           </nav>
         )}
-        <div className="hidden items-center gap-3 px-4 py-6 lg:flex"><LogoutButton /><LangSwitch /></div>
+        <div className="hidden flex-wrap items-center gap-x-3 gap-y-1 px-4 py-6 lg:flex"><LogoutButton /><LangSwitch /><TourButton /></div>
       </aside>
       <main className="min-w-0">
         {shop.is_demo && (
@@ -46,7 +48,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           </div>
         )}
         <div className="mx-auto max-w-[1120px] px-4 py-8 lg:px-10 lg:py-10">{children}</div>
-        <div className="flex items-center gap-3 px-4 pb-6 lg:hidden"><LogoutButton /><LangSwitch /></div>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 pb-6 lg:hidden"><LogoutButton /><LangSwitch /><TourButton /></div>
       </main>
     </div>
   );

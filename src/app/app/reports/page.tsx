@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireOwner } from "@/lib/auth";
 import { dateLocale } from "@/lib/i18n";
 import { getT, titleOf } from "@/lib/i18n/server";
@@ -16,6 +17,14 @@ export default async function Reports() {
         <h1 className="text-3xl font-semibold">{t("reports.title")}</h1>
         <a href="/api/export" className="btn btn-ghost">{t("reports.export")}</a>
       </div>
+
+      {r.total === 0 && (
+        <section className="card mt-6 p-7">
+          <h2 className="text-2xl">{t("reports.emptyH")}</h2>
+          <p className="mt-2 max-w-xl text-muted">{t("reports.emptyP")}</p>
+          <Link href="/app/new" className="btn-text mt-4 inline-block">{t("nav.newOrder")} →</Link>
+        </section>
+      )}
 
       <section className="card mt-6 overflow-x-auto">
         <table className="w-full text-sm">

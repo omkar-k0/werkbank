@@ -180,3 +180,18 @@ describe("sign-in flow plumbing", () => {
     expect(await readFlow("garbage")).toBeNull();
   });
 });
+
+describe("first-run checklist data", () => {
+  it("counts a new shop's orders and staff, per shop", async () => {
+    const { createOrder, onboardingStatus } = await import("@/lib/repo");
+    const a = await signupWithGoogle({ sub: "g-ob-a", email: "a@ob.test", name: "A" }, "Onboarding A", "trial");
+    const b = await signupWithGoogle({ sub: "g-ob-b", email: "b@ob.test", name: "B" }, "Onboarding B", "trial");
+    expect(await onboardingStatus(a)).toEqual({ orders: 0, staff: 0 });
+    await createOrder(a, { customerName: "C", item: "Sofa", description: "fabric torn, new foam" });
+    await createWorkshopUser(a, (await listWorkshops(a))[0].id, "Jo", "jo.onboarda", "pw-12345678");
+    expect(await onboardingStatus(a)).toEqual({ orders: 1, staff: 1 });
+    expect(await onboardingStatus(b)).toEqual({ orders: 0, staff: 0 }); // another shop's work does not count
+    const staff = (await login("jo.onboarda", "pw-12345678"))!;
+    await expect(onboardingStatus(staff)).rejects.toBeInstanceOf(Forbidden);
+  });
+});

@@ -21,7 +21,7 @@ export default async function Review() {
         {t("review.lead")}
       </p>
       <div className="mt-6 space-y-3">
-        {!orders.length && <div className="card p-6 text-muted">{t("review.empty")}</div>}
+        {!orders.length && <div className="card p-6"><p className="font-medium">{t("review.empty")}</p><p className="mt-1 text-sm text-muted">{t("review.emptyHint")}</p></div>}
         {orders.map((o) => {
           const ranked = (Object.entries(o.probabilities) as [Capability, number][]).sort((a, b) => b[1] - a[1]);
           const suggested = workshops.find((w) => w.capabilities.includes(ranked[0][0]))?.id;

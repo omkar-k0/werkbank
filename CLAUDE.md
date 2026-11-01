@@ -55,7 +55,7 @@ v1: hand-written auto-routed 40% at 95.8% accuracy; after 100 corrections, 82.5%
 Job-type accuracy about 70% (weak). Never quote the 400-correction row.
 
 ## Commands
-`npm run dev` · `npm test` (56 tests: classifier, tenant isolation, split orders, auth, i18n) · `npm run build` · `npm run model`
+`npm run dev` · `npm test` (57 tests: classifier, tenant isolation, split orders, auth, i18n) · `npm run build` · `npm run model`
 
 ## Open item from v1
 Check whether `werkbank-live-fix.patch` was applied (README live URL + `export const maxDuration = 60`
@@ -74,6 +74,12 @@ The live demo shop is already seeded, so the four split demo orders only appear 
 The new tables/columns are created automatically on first connection, no manual migration.
 German classification is weaker than English (lexicon is mostly English): 3 of my first 5 German example
 sentences went to review. Do not fix by tuning the lexicon against test data; see item 6.
+
+## First-run guidance
+`src/components/Tour.tsx`: a `<dialog>` tour shown once per person per browser (localStorage `wb_tour_v1_<role>`: owner 4 steps,
+staff 3), reopened by the "How it works" link in the sidebar. A brand-new owner's board shows a get-started card instead
+of an empty table (`onboardingStatus` in `repo.ts`: orders and staff counts; the demo shop never shows it). Review, reports
+and the staff view have friendly empty states. All copy is in `messages.ts` (`getstarted.*`, `tour.*`).
 
 ## Design
 Apple-like minimalism on the warm wood palette (details and what was rejected: `docs/design/README.md`). One filled
