@@ -19,7 +19,7 @@ that went quiet. Never put the client's name in the repo or on the site. The dem
 - Optional env: `ANTHROPIC_API_KEY` (LLM step), `RESEND_API_KEY` + `MAIL_FROM` (done emails).
 
 ## Architecture (keep these decisions unless Omkar changes them)
-- Next.js 15 App Router, TypeScript, Tailwind 4. No ORM: all SQL lives in `src/lib/repo.ts`,
+- Next.js 16 App Router, TypeScript, Tailwind 4. No ORM: all SQL lives in `src/lib/repo.ts`,
   and every query filters on `shop_id`. Workshop users are pinned to their `workshop_id`.
 - DB layer `src/lib/db.ts`: Neon in production, PGlite (in-process Postgres) locally and in tests.
 - Classifier `src/lib/classifier/`: lexicon rules + multinomial naive Bayes (temperature-calibrated),
@@ -62,13 +62,25 @@ Check whether `werkbank-live-fix.patch` was applied (README live URL + `export c
 in `src/app/api/demo/route.ts` and `src/app/api/demo/reset/route.ts`). If not, make those edits.
 Demo reset takes about 45 s on Neon: seeding does about 600 sequential queries.
 
-## v2 progress
-Done on branch claude/serene-turing-tz3f80: item 7 (batched seed, Next 16, Vitest 5, 0 audit findings),
-item 5 (German UI), item 2 (split orders). The live demo shop is already seeded, so the four split demo orders
-only appear after "Reset demo data" in Settings. The new `order_parts` table is created automatically on first
-connection (`CREATE TABLE IF NOT EXISTS`), no manual migration.
+## v2 progress (all on main since 1 Nov 2026)
+Done: batched seed, Next 16 + Vitest 5, German UI, split orders, Google owner login with username staff logins,
+and the minimal redesign (see Design). Next: Stripe (needs `STRIPE_SECRET_KEY` test key in the environment; decisions:
+enforce the Starter limits, lock the shop when a payment fails or the subscription is cancelled, lifetime EUR 790 is a
+one-time payment with EUR 149/year as a separate update subscription), then Impressum + privacy pages if the site stays
+public (Omkar must supply the address), then item 6.
+Branches: `archive/pre-redesign` = main before the redesign (old README and look), `v2` = before the redesign too,
+`design/stitch` = Omkar's Stitch export (not merged: its PRD contains invented metrics).
+The live demo shop is already seeded, so the four split demo orders only appear after "Reset demo data" in Settings.
+The new tables/columns are created automatically on first connection, no manual migration.
 German classification is weaker than English (lexicon is mostly English): 3 of my first 5 German example
 sentences went to review. Do not fix by tuning the lexicon against test data; see item 6.
+
+## Design
+Apple-like minimalism on the warm wood palette (details and what was rejected: `docs/design/README.md`). One filled
+walnut button per owner screen, status = dot + label, hairlines not shadows, Newsreader headings, Inter text.
+Custom component classes (`.btn`, `.card`, `.input`) live in `@layer components` so Tailwind utilities override them.
+Never show invented UI claims (version numbers, "system online", order refs). Accuracy figures are shown with one
+decimal and never above 99.9%.
 
 ## v2 candidates (ask Omkar which ones before building)
 1. Stripe test-mode billing: monthly plans (Starter €29, Pro €59) and lifetime licence (€790)
