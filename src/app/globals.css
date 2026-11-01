@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/newsreader";
 @import "@fontsource-variable/inter";
 
 /* Workshop palette: paper, walnut ink, sawdust. Gate colours are
@@ -56,7 +56,7 @@
   --color-rust: var(--rust);
   --color-rust-bg: var(--rust-bg);
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-display: "Newsreader Variable", ui-serif, Georgia, serif;
 }
 
 body {
@@ -68,18 +68,19 @@ body {
 
 h1, h2, h3, .display {
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  /* the quiet look wants light serif headings; this beats the font-semibold utility used on them */
+  font-weight: 500 !important;
 }
 
-/* faint wood-grain texture on the paper */
-.grain {
-  background-image: repeating-linear-gradient(
-    100deg,
-    transparent 0 22px,
-    color-mix(in oklab, var(--line) 35%, transparent) 22px 23px
-  );
-}
+/* small grey label above a value */
+.eyebrow { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 
+/* status: an 8px dot next to a plain text label, never a coloured pill */
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; flex: none; }
+
+/* component classes sit in a lower layer so utility classes (hidden, px-6, ...) can override them */
+@layer components {
 .input {
   width: 100%;
   border: 1px solid var(--line);
@@ -100,4 +101,8 @@ h1, h2, h3, .display {
 .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .btn-ghost:hover { background: var(--sawdust); filter: none; }
 
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 0.9rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 0.875rem; }
+
+.btn-text { color: var(--walnut); font-weight: 500; font-size: 0.9rem; }
+.btn-text:hover { text-decoration: underline; text-underline-offset: 3px; }
+}

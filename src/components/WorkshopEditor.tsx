@@ -16,7 +16,7 @@ function CapPicker({ value, onChange }: { value: Capability[]; onChange: (v: Cap
   return (
     <div className="flex flex-wrap gap-2">
       {CAPABILITIES.map((c) => (
-        <label key={c} className={`cursor-pointer rounded-full border px-3 py-1 text-sm ${value.includes(c) ? "border-walnut bg-walnut text-walnut-ink" : "border-line"}`}>
+        <label key={c} className={`cursor-pointer rounded-full border px-3 py-1 text-sm ${value.includes(c) ? "border-walnut bg-sawdust font-medium text-walnut" : "border-line text-muted"}`}>
           <input type="checkbox" className="sr-only" checked={value.includes(c)} onChange={(e) => onChange(e.target.checked ? [...value, c] : value.filter((x) => x !== c))} />
           {t(`cap.${c}`)}
         </label>

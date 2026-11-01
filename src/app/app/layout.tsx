@@ -26,30 +26,26 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             <div className="text-xs text-muted">{s.role === "owner" ? t("role.owner") : myWorkshop?.name} · {s.name}</div>
           </div>
         </div>
-        <nav className="flex gap-1 overflow-x-auto px-3 pb-3 lg:flex-col lg:pb-0">
-          {s.role === "owner" ? (
-            <>
-              <NavLink href="/app">{t("nav.board")}</NavLink>
-              <NavLink href="/app/new">{t("nav.newOrder")}</NavLink>
-              <NavLink href="/app/review" badge={reviewCount}>{t("nav.review")}</NavLink>
-              <NavLink href="/app/reports">{t("nav.reports")}</NavLink>
-              <NavLink href="/app/workshops">{t("nav.workshops")}</NavLink>
-              <NavLink href="/app/settings">{t("nav.settings")}</NavLink>
-            </>
-          ) : (
-            <NavLink href="/app">{t("nav.myOrders")}</NavLink>
-          )}
-        </nav>
+        {s.role === "owner" && (
+          <nav className="flex gap-1 overflow-x-auto px-3 pb-3 lg:flex-col lg:pb-0">
+            <NavLink href="/app" icon="board">{t("nav.board")}</NavLink>
+            <NavLink href="/app/new" icon="plus">{t("nav.newOrder")}</NavLink>
+            <NavLink href="/app/review" icon="review" badge={reviewCount}>{t("nav.review")}</NavLink>
+            <NavLink href="/app/reports" icon="reports">{t("nav.reports")}</NavLink>
+            <NavLink href="/app/workshops" icon="workshops">{t("nav.workshops")}</NavLink>
+            <NavLink href="/app/settings" icon="settings">{t("nav.settings")}</NavLink>
+          </nav>
+        )}
         <div className="hidden items-center gap-3 px-4 py-6 lg:flex"><LogoutButton /><LangSwitch /></div>
       </aside>
       <main className="min-w-0">
         {shop.is_demo && (
-          <div className="border-b border-line bg-amber-bg px-4 py-2 text-sm text-amber">
+          <div className="border-b border-line bg-sawdust/60 px-4 py-2 text-xs text-muted">
             {t("demo.banner")}{usingEphemeralDb() ? t("demo.bannerReset") : ""}.
             {s.role === "owner" ? t("demo.bannerHint") : ""}
           </div>
         )}
-        <div className="mx-auto max-w-6xl px-4 py-6 lg:px-8">{children}</div>
+        <div className="mx-auto max-w-[1120px] px-4 py-8 lg:px-10 lg:py-10">{children}</div>
         <div className="flex items-center gap-3 px-4 pb-6 lg:hidden"><LogoutButton /><LangSwitch /></div>
       </main>
     </div>

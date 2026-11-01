@@ -15,7 +15,7 @@ const FEATURES = {
 export default async function Pricing() {
   const { t } = await getT();
   return (
-    <div className="grain min-h-dvh">
+    <div className="min-h-dvh">
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 py-10">
         <h1 className="text-4xl font-semibold sm:text-5xl">{t("pricing.h1")}</h1>
@@ -27,7 +27,7 @@ export default async function Pricing() {
             const highlight = id === "pro";
             return (
             <div key={id} className={`card flex flex-col p-6 ${highlight ? "ring-2 ring-walnut" : ""}`}>
-              {highlight && <span className="mb-2 self-start rounded-full bg-walnut px-2 py-0.5 text-xs font-semibold text-walnut-ink">{t("pricing.mostShops")}</span>}
+              {highlight && <span className="mb-2 self-start rounded-full bg-sawdust px-2 py-0.5 text-xs font-medium text-walnut">{t("pricing.mostShops")}</span>}
               <h2 className="text-2xl font-semibold">{t(`plan.${id}.name`)}</h2>
               <p className="text-muted">{t(`plan.${id}.blurb`)}</p>
               <div className="mt-4">

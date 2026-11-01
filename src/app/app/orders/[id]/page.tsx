@@ -29,40 +29,40 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
     <div>
       <Link href="/app" className="text-sm text-muted hover:underline">{t("order.back")}</Link>
       <div className="mt-2 flex flex-wrap items-center gap-3">
-        <h1 className="text-3xl font-semibold">#{o.number} · {o.item}</h1>
+        <h1 className="text-4xl">#{o.number} · {o.item}</h1>
         <StatusPill status={o.status} />
         <UrgencyTag urgency={o.urgency} />
-        {isOverdue(o) && <span className="rounded-full bg-rust-bg px-2 py-0.5 text-xs font-semibold text-rust">{t("common.overdue")}</span>}
+        {isOverdue(o) && <span className="inline-flex items-center gap-1.5 text-sm text-rust"><span className="dot bg-rust" />{t("common.overdue")}</span>}
       </div>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
         <div className="space-y-6">
           <section className="card p-6">
-            <p className="text-lg">{o.description}</p>
-            <dl className="mt-5 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
-              <div><dt className="text-muted">{t("order.customer")}</dt><dd className="font-medium">{o.customer_name}</dd></div>
-              <div><dt className="text-muted">{t("order.phone")}</dt><dd className="font-medium">{o.customer_phone ?? "—"}</dd></div>
-              <div><dt className="text-muted">{t("order.customerDue")}</dt><dd className="font-medium">{fmtDate(o.due_date, locale)}</dd></div>
-              <div><dt className="text-muted">{t("order.received")}</dt><dd className="font-medium">{fmtDate(o.created_at, locale)}</dd></div>
-              <div><dt className="text-muted">{t("order.jobType")}</dt><dd>{s.role === "owner" ? <JobTypeSelect id={o.id} value={o.job_type} workshopId={o.workshop_id} /> : <span className="font-medium capitalize">{job(o.job_type)}</span>}</dd></div>
-              <div><dt className="text-muted">{t("order.effort")}</dt><dd className="font-medium">{o.effort}</dd></div>
-              <div><dt className="text-muted">{t("order.urgency")}</dt><dd className="font-medium capitalize">{urgency(o.urgency)}</dd></div>
-              <div><dt className="text-muted">{t("order.workshop")}</dt><dd className="font-medium">{o.parts.length ? o.parts.map((p) => p.workshop_name).join(" + ") : (o.workshop_name ?? t("common.unassigned"))}</dd></div>
+            <p className="display text-2xl leading-snug">{o.description}</p>
+            <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 border-t border-line pt-5 text-sm sm:grid-cols-4">
+              <div><dt className="eyebrow mb-1">{t("order.customer")}</dt><dd className="font-medium">{o.customer_name}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.phone")}</dt><dd className="font-medium">{o.customer_phone ?? "—"}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.customerDue")}</dt><dd className="font-medium">{fmtDate(o.due_date, locale)}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.received")}</dt><dd className="font-medium">{fmtDate(o.created_at, locale)}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.jobType")}</dt><dd>{s.role === "owner" ? <JobTypeSelect id={o.id} value={o.job_type} workshopId={o.workshop_id} /> : <span className="font-medium capitalize">{job(o.job_type)}</span>}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.effort")}</dt><dd className="font-medium">{o.effort}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.urgency")}</dt><dd className="font-medium capitalize">{urgency(o.urgency)}</dd></div>
+              <div><dt className="eyebrow mb-1">{t("order.workshop")}</dt><dd className="font-medium">{o.parts.length ? o.parts.map((p) => p.workshop_name).join(" + ") : (o.workshop_name ?? t("common.unassigned"))}</dd></div>
             </dl>
             {!!labels.urgencyCues?.length && <p className="mt-3 text-xs text-muted">{t("order.urgentBecause", { cues: labels.urgencyCues.join(", ") })}</p>}
           </section>
 
           {o.workshop_id && (
             <section className="card space-y-3 p-6">
-              <h2 className="text-lg font-semibold">{t("order.progress")}</h2>
+              <h2 className="text-xl">{t("order.progress")}</h2>
               {o.parts.length ? (
                 <>
                   {s.role === "workshop" && <p className="text-sm text-muted">{t("order.sharedWith", { ws: o.parts.filter((p) => p.workshop_id !== s.workshopId).map((p) => p.workshop_name).join(", ") })}</p>}
-                  {o.parts.filter((p) => s.role === "owner" || p.workshop_id === s.workshopId).map((p) => (
+                  {o.parts.filter((p) => s.role === "owner" || p.workshop_id === s.workshopId).map((p, idx) => (
                     <div key={p.id} className="space-y-2 border-t border-line pt-3 first:border-0 first:pt-0">
-                      <div className="flex items-center gap-2"><span className="font-semibold">{p.workshop_name}</span><StatusPill status={p.status} /></div>
+                      <div className="flex items-center gap-2"><span className="font-medium">{p.workshop_name}</span><StatusPill status={p.status} /></div>
                       {p.note && <p className="text-sm text-muted">{p.note}</p>}
-                      <StatusButtons id={o.id} status={p.status} workshopId={s.role === "owner" ? p.workshop_id : undefined} />
+                      <StatusButtons id={o.id} status={p.status} quiet={idx > 0} workshopId={s.role === "owner" ? p.workshop_id : undefined} />
                       <ExpectedDate id={o.id} value={p.expected_date} workshopId={s.role === "owner" ? p.workshop_id : undefined} />
                     </div>
                   ))}
@@ -78,7 +78,7 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
 
           {s.role === "owner" && (
             <section className="card p-6">
-              <h2 className="text-lg font-semibold">{o.workshop_id ? t("order.moveTitle") : t("order.assignTitle")}</h2>
+              <h2 className="text-xl">{o.workshop_id ? t("order.moveTitle") : t("order.assignTitle")}</h2>
               <p className="mb-3 text-sm text-muted">{t("order.moveHint")}</p>
               <AssignSelect id={o.id} current={o.workshop_id} workshops={workshops} suggested={suggested} />
             </section>
@@ -86,7 +86,7 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
 
           {s.role === "owner" && o.workshop_id && (
             <section className="card p-6">
-              <h2 className="text-lg font-semibold">{t("order.splitH")}</h2>
+              <h2 className="text-xl">{t("order.splitH")}</h2>
               <p className="mb-3 text-sm text-muted">{t("order.splitHint")}</p>
               {o.parts.length ? (
                 <UnsplitButton id={o.id} name={o.parts.find((p) => !p.is_primary)!.workshop_name} />
@@ -100,7 +100,7 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
         <div className="space-y-6">
           <section className="card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold">{t("order.why")}</h2>
+              <h2 className="text-xl">{t("order.why")}</h2>
               <GateBadge gate={o.gate} source={o.source} />
             </div>
             <p className="mt-2 text-sm text-muted">{localizeReason(locale, o.reason)}</p>
@@ -118,10 +118,11 @@ export default async function OrderPage({ params }: { params: Promise<{ id: stri
           </section>
 
           <section className="card p-6">
-            <h2 className="text-lg font-semibold">{t("order.history")}</h2>
-            <ol className="mt-3 space-y-3 border-l border-line pl-4 text-sm">
+            <h2 className="text-xl">{t("order.history")}</h2>
+            <ol className="mt-4 space-y-4 border-l border-line pl-5 text-sm">
               {events.map((e, i) => (
-                <li key={i}>
+                <li key={i} className="relative">
+                  <span className="dot absolute -left-[25px] top-1.5 bg-line ring-4 ring-card" />
                   <div>{localizeEvent(locale, e.detail)}</div>
                   <div className="text-xs text-muted">{e.actor === "system" ? t("event.actorSystem") : e.actor} · {new Date(e.at).toLocaleString(dateLocale(locale), { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}</div>
                 </li>

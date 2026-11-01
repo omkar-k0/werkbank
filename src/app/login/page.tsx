@@ -14,7 +14,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
   const { error } = await searchParams;
   const err = ERRORS.find((e) => e === error);
   return (
-    <div className="grain min-h-dvh">
+    <div className="min-h-dvh">
       <SiteHeader />
       <main className="mx-auto max-w-sm px-4 py-12">
         <h1 className="text-3xl font-semibold">{t("login.title")}</h1>

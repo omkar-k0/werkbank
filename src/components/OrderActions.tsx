@@ -24,7 +24,7 @@ function alertSoft(msg: string) {
   setTimeout(() => el.remove(), 3500);
 }
 
-export function StatusButtons({ id, status, compact = false, workshopId }: { id: string; status: string; compact?: boolean; workshopId?: string }) {
+export function StatusButtons({ id, status, compact = false, workshopId, quiet = false }: { id: string; status: string; compact?: boolean; workshopId?: string; quiet?: boolean }) {
   const t = useT();
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -34,7 +34,7 @@ export function StatusButtons({ id, status, compact = false, workshopId }: { id:
         <button
           key={to}
           disabled={busy}
-          className={i === 0 ? "btn" : `btn btn-ghost ${compact ? "hidden sm:inline-flex" : ""}`}
+          className={i === 0 && !quiet ? `btn ${compact ? "min-h-12 w-full text-base" : ""}` : `btn btn-ghost ${compact ? "min-h-12 w-full" : ""}`}
           onClick={async () => {
             setBusy(true);
             await call(`/api/orders/${id}`, "PATCH", { status: to, workshopId }, t("common.couldNotSave"));

@@ -13,7 +13,7 @@ export default async function Signup({ searchParams }: { searchParams: Promise<{
   const known = plan in PLAN_KEYS;
   const err = error === "shop" || error === "email" ? error : null;
   return (
-    <div className="grain min-h-dvh">
+    <div className="min-h-dvh">
       <SiteHeader />
       <main className="mx-auto max-w-sm px-4 py-12">
         <h1 className="text-3xl font-semibold">{t("signup.h1")}</h1>

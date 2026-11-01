@@ -8,11 +8,11 @@ export async function SiteHeader() {
   return (
     <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
       <Link href="/"><Logo className="text-walnut" /></Link>
-      <nav className="flex items-center gap-1 text-sm sm:gap-4">
+      <nav className="flex items-center gap-1 whitespace-nowrap text-sm sm:gap-4">
         <Link href="/pricing" className="rounded px-2 py-1 hover:bg-sawdust">{t("site.pricing")}</Link>
         <Link href="/login" className="rounded px-2 py-1 hover:bg-sawdust">{t("site.signIn")}</Link>
         <LangSwitch />
-        <Link href="/signup" className="btn hidden sm:inline-flex">{t("site.startTrial")}</Link>
+        <Link href="/signup" className="btn btn-ghost hidden sm:inline-flex">{t("site.startTrial")}</Link>
       </nav>
     </header>
   );

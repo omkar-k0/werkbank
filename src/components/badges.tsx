@@ -5,39 +5,34 @@ import { pctLabel } from "./ui";
 
 // These read the visitor's language from context, so they work in server and client pages alike.
 
-export function GateBadge({ gate, source }: { gate: string; source?: string }) {
-  const t = useT();
-  if (source === "manual")
-    return <span className="rounded-full bg-sawdust px-2 py-0.5 text-xs font-semibold text-muted">{t("gate.manual")}</span>;
-  const map = {
-    auto: ["bg-moss-bg text-moss", t("gate.auto")],
-    check: ["bg-amber-bg text-amber", t("gate.check")],
-    review: ["bg-rust-bg text-rust", t("gate.review")],
-  } as Record<string, [string, string]>;
-  const [cls, label] = map[gate] ?? map.review;
+function Dotted({ color, label, strong = false, muted = false }: { color: string; label: string; strong?: boolean; muted?: boolean }) {
   return (
-    <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${cls}`}>
+    <span className={`inline-flex items-center gap-1.5 text-sm ${strong ? "font-medium" : ""} ${muted ? "text-muted" : ""}`}>
+      <span className={`dot ${color}`} />
       {label}
-      {source === "llm" ? " · LLM" : ""}
     </span>
   );
 }
 
-const STATUS_CLS: Record<string, string> = {
-  not_started: "bg-sawdust text-muted",
-  in_progress: "bg-amber-bg text-amber",
-  done: "bg-moss-bg text-moss",
-};
+export function GateBadge({ gate, source }: { gate: string; source?: string }) {
+  const t = useT();
+  if (source === "manual") return <Dotted color="bg-muted/50" label={t("gate.manual")} muted />;
+  const label = gate === "auto" ? t("gate.auto") : gate === "check" ? t("gate.check") : t("gate.review");
+  const color = gate === "auto" ? "bg-moss" : gate === "check" ? "bg-amber" : "bg-rust";
+  return <Dotted color={color} label={label + (source === "llm" ? " · LLM" : "")} strong={gate === "review"} />;
+}
+
+const STATUS_DOT: Record<string, string> = { not_started: "bg-muted/40", in_progress: "bg-amber", done: "bg-moss" };
 export function StatusPill({ status }: { status: string }) {
   const t = useT();
-  const s = (status in STATUS_CLS ? status : "not_started") as "not_started" | "in_progress" | "done";
-  return <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${STATUS_CLS[s]}`}>{t(`status.${s}`)}</span>;
+  const s = (status in STATUS_DOT ? status : "not_started") as "not_started" | "in_progress" | "done";
+  return <Dotted color={STATUS_DOT[s]} label={t(`status.${s}`)} muted={s !== "in_progress"} />;
 }
 
 export function UrgencyTag({ urgency }: { urgency: string }) {
   const t = useT();
-  if (urgency === "high") return <span className="text-xs font-bold uppercase tracking-wide text-rust">{t("urgency.high")}</span>;
-  if (urgency === "low") return <span className="text-xs uppercase tracking-wide text-muted">{t("urgency.low")}</span>;
+  if (urgency === "high") return <span className="rounded bg-rust-bg px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-rust">{t("urgency.high")}</span>;
+  if (urgency === "low") return <span className="text-[11px] uppercase tracking-wide text-muted">{t("urgency.low")}</span>;
   return null;
 }
 

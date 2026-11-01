@@ -27,9 +27,9 @@ export function TryIt() {
   }, [text]);
   const top = res ? (Object.entries(res.routing.probabilities).sort((a, b) => b[1] - a[1])[0][0] as keyof typeof res.routing.probabilities) : null;
   return (
-    <div className="card p-5 shadow-sm">
-      <label className="text-xs font-semibold uppercase tracking-wider text-muted">{t("try.label")}</label>
-      <textarea className="input mt-2 h-24 resize-none" value={text} onChange={(e) => setCustom(e.target.value)} />
+    <div className="card p-6 text-left">
+      <label className="eyebrow">{t("try.label")}</label>
+      <textarea className="input mt-3 h-24 resize-none text-base" value={text} onChange={(e) => setCustom(e.target.value)} />
       <div className="mt-2 flex flex-wrap gap-1.5">
         {EXAMPLES.map((k, i) => {
           const e = t(k);
@@ -43,7 +43,7 @@ export function TryIt() {
       {res && (
         <div className="mt-4 space-y-3 border-t border-line pt-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="display text-xl font-semibold">
+            <span className="display text-2xl">
               {res.routing.gate === "review" ? t("try.held") : `→ ${L.cap(res.routing.capability!)}`}
             </span>
             <GateBadge gate={res.routing.gate} />
