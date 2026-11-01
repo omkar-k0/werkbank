@@ -10,6 +10,8 @@ Live demo: **https://werkbank-gamma.vercel.app**. Click *Open the demo shop*; no
 
 ![Board](docs/screenshots/board.png)
 
+English and German UI, a quiet design on a warm wood palette, and a phone-first view for workshop staff.
+
 ## Why this exists
 
 The project started from a real client brief: a furniture retailer with three in-house workshops wanted orders
@@ -24,14 +26,17 @@ in-house workshop should take it. That gap is what Werkbank fills.
 
 | Owner | Workshop staff |
 |---|---|
+| Signs in with Google | Username and password, created and reset by the owner |
 | Live preview of the routing while typing an order | Own login that only shows that workshop's orders |
 | One board for all workshops, overdue orders highlighted | Urgent jobs first, then sorted by due date |
-| Review queue for low-confidence orders, with the model's best guess | One tap for *Start* or *Mark done*, plus an expected finish date |
+| Review queue for low-confidence orders, with the model's best guess | Three tabs and big buttons: *Start*, *Mark done*, plus an expected finish date |
 | Reassigning an order teaches the shop's model | The board refreshes itself every few seconds |
+| Splits one order across two workshops that work in parallel | Sees and updates only its own part of a split order |
 | Reports: open, overdue, done and turnaround per workshop; monthly volume; CSV export | |
 | Router strictness (strict, balanced, relaxed) and plan selection | |
 
-It installs as an app on phone and desktop (PWA), and all data is stored server-side in Postgres. Pricing is
+The whole interface is available in English and German. It installs as an app on phone and desktop (PWA), and all
+data is stored server-side in Postgres. Pricing is
 either a subscription (Starter €29/month, Pro €59/month) or a one-time licence (€790). Payments are **not** connected
 in this build: picking a plan only records it on the account.
 
@@ -96,8 +101,9 @@ the model is then measured on 400 later orders:
 
 Limitations, plainly: synthetic test data is easier than real tickets, so real-world accuracy is unknown until a
 shop uses it. The 400-correction row in the full report is close to in-distribution and should not be quoted. Job
-type accuracy (70%) is mediocre. Single-capability routing does not split multi-workshop jobs; a "also involves"
-hint is shown instead.
+type accuracy (70%) is mediocre. The router picks one workshop; an "also involves" hint suggests when an owner
+may want to split the order by hand. German requests are recognised less often than English ones: the cue lexicon is
+mostly English, and in a small manual check 3 of 5 German example sentences went to the review queue.
 
 ## Multi-tenancy and security
 
@@ -114,15 +120,15 @@ hint is shown instead.
 
 ## Stack
 
-Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · Postgres (Neon in production, PGlite in dev and tests) ·
-jose · bcryptjs · Vitest · Playwright for the visual walkthrough. No ORM: around 20 parameterised queries in one file.
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Postgres (Neon in production, PGlite in dev and tests) ·
+jose · bcryptjs · Vitest · Newsreader and Inter. No ORM: all SQL is parameterised and lives in one file.
 
 ## Run it locally
 
 ```bash
 npm install
 npm run dev          # http://localhost:3000, data in ./.pglite, demo shop seeded on first start
-npm test             # 23 tests: classifier + tenant isolation
+npm test             # 56 tests: classifier, tenant isolation, split orders, auth, i18n
 npm run model        # regenerate data, retrain, re-evaluate
 ```
 
@@ -142,15 +148,21 @@ but data resets and is not shared between server instances.
 
 ## Screenshots
 
-| New order with live routing | Why it went there |
+| Landing page | Board |
+|---|---|
+| ![](docs/screenshots/landing.png) | ![](docs/screenshots/board.png) |
+
+| New order with live routing | Why it went there, split across two workshops |
 |---|---|
 | ![](docs/screenshots/new-order.png) | ![](docs/screenshots/order.png) |
 
-| A workshop's view | Phone |
-|---|---|
-| ![](docs/screenshots/workshop-view.png) | ![](docs/screenshots/mobile.png) |
+| A workshop's view | Phone | German |
+|---|---|---|
+| ![](docs/screenshots/workshop-view.png) | ![](docs/screenshots/mobile.png) | ![](docs/screenshots/board-de.png) |
+
+Design notes: [`docs/design/`](docs/design/README.md).
 
 ## Not built (yet)
 
-Payments (Stripe), WhatsApp alerts, native store apps (the PWA covers install), splitting one order across two
-workshops, and photo attachments.
+Payments (Stripe, test mode planned), WhatsApp alerts, native store apps (the PWA covers install), and photo
+attachments.
