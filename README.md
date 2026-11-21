@@ -105,6 +105,8 @@ type accuracy (70%) is mediocre. The router picks one workshop; an "also involve
 may want to split the order by hand. German requests are recognised less often than English ones: the cue lexicon is
 mostly English, and in a small manual check 3 of 5 German example sentences went to the review queue.
 
+Known errors in the live demo, with their cause: [docs/known-errors.md](docs/known-errors.md).
+
 ## Multi-tenancy and security
 
 - Every tenant table carries `shop_id`. All SQL lives in [`src/lib/repo.ts`](src/lib/repo.ts) and filters on the
