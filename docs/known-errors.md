@@ -13,9 +13,13 @@ What happens, checked on 21 Nov 2026:
 - The text has no lexicon cue ("sanded", "waxed" are not in the lexicon), so the rules layer is empty.
 - With the **seed model alone** the order goes to **review**: naive Bayes leans to Upholstery (0.90),
   but the "unfamiliar" guard fires because fewer than 2 words are known to the model.
-- In the **demo shop**, earlier simulated owner corrections have taught the model common words from
-  other orders. Now 2 or more words count as "known", the guard no longer fires, and the 0.90 upholstery
-  score clears the auto gate (0.85, margin 0.5).
+- In the **demo shop**, 15 simulated owner corrections come before this order. They teach the model one
+  more word of this request: known words go from 1 to 2, the guard no longer fires, and the 0.88
+  upholstery score clears the auto gate (0.85, margin 0.5).
+
+Reproduced by replaying the demo seed's classification loop (same texts, same correction rule) on
+21 Nov 2026: seed model alone gives 1 known word and gate review; at order #1052 the shop model gives
+2 known words and gate auto, Upholstery, 0.88.
 
 So the guard counts *any* known word, including ones that say nothing about the trade. Once a shop has
 made some corrections, an order with no informative word can be auto-routed on the model's prior.
