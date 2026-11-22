@@ -6,6 +6,11 @@ import { Logo } from "./ui";
 export async function SiteHeader() {
   const { t } = await getT();
   return (
+    <>
+    <p role="note" className="border-b border-line bg-sawdust px-4 py-2 text-center text-sm">
+      {t("site.portfolioBanner")}{" "}
+      <a className="underline" href="https://omkarkhadilkar.dev/work/werkbank/">{t("site.portfolioBannerLink")}</a>
+    </p>
     <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
       <Link href="/"><Logo className="text-walnut" /></Link>
       <nav className="flex items-center gap-1 whitespace-nowrap text-sm sm:gap-4">
@@ -15,6 +20,7 @@ export async function SiteHeader() {
         <Link href="/signup" className="btn btn-ghost hidden sm:inline-flex">{t("site.startTrial")}</Link>
       </nav>
     </header>
+    </>
   );
 }
 

@@ -13,6 +13,8 @@ export const en = {
   "site.pricing": "Pricing",
   "site.signIn": "Sign in",
   "site.startTrial": "Start free trial",
+  "site.portfolioBanner": "Portfolio demo. Not a real product. No payments.",
+  "site.portfolioBannerLink": "How it was built",
   "site.footerCredit": "Werkbank. A portfolio project by Omkar Khadilkar.",
   "site.footerSource": "Source & evaluation on GitHub",
 
@@ -404,6 +406,8 @@ export const de: Record<MsgKey, string> = {
   "site.pricing": "Preise",
   "site.signIn": "Anmelden",
   "site.startTrial": "Kostenlos testen",
+  "site.portfolioBanner": "Portfolio-Demo. Kein echtes Produkt. Keine Zahlungen.",
+  "site.portfolioBannerLink": "Wie es gebaut wurde",
   "site.footerCredit": "Werkbank. Ein Portfolio-Projekt von Omkar Khadilkar.",
   "site.footerSource": "Quellcode & Evaluation auf GitHub",
 
